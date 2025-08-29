@@ -1,0 +1,51 @@
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import Components from 'unplugin-vue-components/vite'
+import vueDevTools from 'vite-plugin-vue-devtools'
+import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server'
+import svgLoader from 'vite-svg-loader';
+import dynamicImport from 'vite-plugin-dynamic-import';
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
+import path from 'node:path'
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@': '/src',
+    }
+  },
+  plugins: [
+    vue(),
+    vueDevTools(),
+    svgLoader(),
+    dynamicImport(),
+    VueI18nPlugin({
+      include: [path.resolve(__dirname, './src/i18n/lang/**')]
+    }),
+    
+    mockDevServerPlugin({
+      log: 'debug',
+    }),
+    Components({
+      dts: true, // генерация типов
+      dirs: ['src/components']
+    })
+  ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use "@/styles/variables.scss" as *;
+          @use "@/styles/mixins.scss" as *;
+        `,
+      },
+    },
+  },
+  server: {
+    cors: true, // CORS для локальных ответов
+    proxy: {
+       '^/api': {
+        target: 'http://example.com',
+      },
+    }
+}})

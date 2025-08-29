@@ -1,0 +1,39 @@
+{
+  "save": "Save",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "delete": "Delete",
+  "dashboard": {
+    "title": "Dashboard",
+    "addEmployee": "Add Employee",
+    "deleteConfirm": "Are you sure you want to delete this employee?"
+  },
+  "addPersonForm": {
+    "title": "Add new employee",
+    "name": "Name",
+    "email": "Email",
+    "avatar": "Avatar ref",
+    "employeeCode": "Employee Code",
+    "designation": "Designation",
+    "phone": "Phone Number",
+    "joiningDate": "Joining Date",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete"
+  },
+  "notification": {
+    "success": "Success",
+    "error": "Error",
+    "deleted": "Employee deleted successfully!",
+    "created": "Employee created successfully!"
+  },
+  "employeeTable": {
+    "basicInfo": "Basic Info",
+    "employeeCode": "Employee Code",
+    "designation": "Designation",
+    "phoneNumber": "Phone Number",
+    "joiningDate": "Joining Date",
+    "action": "Action"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "save": "Enregistrer",
+  "cancel": "Annuler",
+  "confirm": "Confirmer",
+  "delete": "Supprimer",
+  "dashboard": {
+    "title": "Tableau de bord",
+    "addEmployee": "Ajouter un employé",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cet employé ?"
+  },
+  "addPersonForm": {
+    "title": "Ajouter un nouvel employé",
+    "name": "Nom",
+    "email": "E-mail",
+    "avatar": "Référence de l'avatar",
+    "employeeCode": "Code employé",
+    "designation": "Poste",
+    "phone": "Numéro de téléphone",
+    "joiningDate": "Date d'embauche",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "delete": "Supprimer"
+  },
+  "notification": {
+    "success": "Succès",
+    "error": "Erreur",
+    "deleted": "Employé supprimé avec succès !",
+    "created": "Employé créé avec succès !"
+  },
+  "employeeTable": {
+    "basicInfo": "Informations de base",
+    "employeeCode": "Code employé",
+    "designation": "Poste",
+    "phoneNumber": "Numéro de téléphone",
+    "joiningDate": "Date d'embauche",
+    "action": "Action"
+  }
+}
