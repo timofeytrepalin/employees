@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/*.ts": {
+      "runtime": "@vercel/node@2"
+    }
+  },
+  "builds": [
+    {
+      "src": "vite.config.ts",
+      "use": "@vercel/static-build"
+    }
+  ]
+}
