@@ -31,7 +31,7 @@ export default defineConfig({
       dirs: ['src/components']
     })
   ],
-  
+
   css: {
     preprocessorOptions: {
       scss: {
@@ -42,8 +42,14 @@ export default defineConfig({
     },
   },
    
+  base: '/',
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      }
+    }
   },
 
   server: {
