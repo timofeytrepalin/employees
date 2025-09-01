@@ -27,7 +27,7 @@ export default defineConfig({
       log: 'debug',
     }),
     Components({
-      dts: true, // генерация типов
+      dts: true,
       dirs: ['src/components']
     })
   ],
@@ -36,13 +36,12 @@ export default defineConfig({
       scss: {
         additionalData: `
           @use "@/styles/variables.scss" as *;
-          @use "@/styles/mixins.scss" as *;
         `,
       },
     },
   },
   server: {
-    cors: true, // CORS для локальных ответов
+    cors: true,
     proxy: {
        '^/api': {
         target: 'http://example.com',
