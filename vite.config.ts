@@ -31,6 +31,7 @@ export default defineConfig({
       dirs: ['src/components']
     })
   ],
+  
   css: {
     preprocessorOptions: {
       scss: {
@@ -40,6 +41,11 @@ export default defineConfig({
       },
     },
   },
+   
+  build: {
+    outDir: 'dist'
+  },
+
   server: {
     cors: true,
     proxy: {
