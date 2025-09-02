@@ -1,5 +1,11 @@
 {
   "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/employees",
+      "destination": "/api/employees.json"
+    }
+  ],
   "builds": [
     {
       "src": "package.json",

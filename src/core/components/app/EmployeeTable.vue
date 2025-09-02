@@ -207,6 +207,7 @@ const formatDate = (dateString: string | Date) => {
 
 .employee-table {
   width: 100%;
+  min-height: 400px;
   border-collapse: separate;
   border-spacing: 0 var(--basic-spacing-small);
   font-family: var(--font-family-default);

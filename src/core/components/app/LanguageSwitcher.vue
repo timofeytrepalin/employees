@@ -41,39 +41,38 @@ const switchLocale = (event: Event) => {
 }
 
 .language-switcher__select {
-  padding: var(--basic-spacing-small) var(--basic-spacing); // 8px 16px
-  background: var(--color-base-background-tertiary); // Тёмный серый фон
-  color: var(--color-base-content-primary); // Белый текст
-  border: 1px solid var(--color-base-border-primary); // Тонкая белая граница
-  border-radius: var(--border-radius); // 4px
+  padding: var(--basic-spacing-small) var(--basic-spacing);
+  background: var(--color-base-background-tertiary);
+  color: var(--color-base-content-primary);
+  border: 1px solid var(--color-base-border-primary);
+  border-radius: var(--border-radius);
   font-family: var(--font-family-system);
-  font-size: var(--font-size-base); // 14px
-  font-weight: var(--font-weight-medium); // 500
-  line-height: var(--line-height-base); // 1.5
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-base);
   cursor: pointer;
   transition: all var(--transition-ease) 0.2s;
-  appearance: none; // Убираем стандартный стиль select
-  background-image: url('/images/hookah-arrow-down.svg'); // Кастомная стрелка
+  appearance: none;
   background-repeat: no-repeat;
-  background-position: right var(--basic-spacing-small) center; // 8px от правого края
-  padding-right: calc(var(--basic-spacing) + var(--size-mini)); // Учёт стрелки
-  width: 120px; // Увеличенная ширина для читаемости
+  background-position: right var(--basic-spacing-small) center;
+  padding-right: calc(var(--basic-spacing) + var(--size-mini));
+  width: 120px;
   text-align: center;
 
   &:hover {
-    background-color: var(--color-base-background-quaternary); // Светлее серый
-    border-color: var(--color-base-border-accent); // Акцентная граница
+    background-color: var(--color-base-background-quaternary);
+    border-color: var(--color-base-border-accent);
   }
 
   &:focus {
     outline: none;
-    border-color: var(--color-status-success); // Мятная граница
-    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2); // Мятный ореол
+    border-color: var(--color-status-success);
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
   }
 }
 
 .language-switcher__option {
-  background: var(--color-base-background-secondary); // Тёмный фон для опций
-  color: var(--color-base-content-primary); // Белый текст
+  background: var(--color-base-background-secondary);
+  color: var(--color-base-content-primary);
 }
 </style>

@@ -55,8 +55,11 @@ export default defineConfig({
   server: {
     cors: true,
     proxy: {
-       '^/api': {
-        target: 'http://example.com',
+       '/api': {
+        target: 'http://localhost:5173', // Локальный сервер для моков
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
       },
     }
-}})
+})
