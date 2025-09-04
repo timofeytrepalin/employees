@@ -31,7 +31,7 @@ export default defineConfig({
       dirs: ['src/components']
     })
   ],
-  
+
   css: {
     preprocessorOptions: {
       scss: {
@@ -42,15 +42,24 @@ export default defineConfig({
     },
   },
    
+  base: '/',
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      }
+    }
   },
 
   server: {
     cors: true,
     proxy: {
-       '^/api': {
-        target: 'http://example.com',
+       '/api': {
+        target: 'http://localhost:5173', // Локальный сервер для моков
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
       },
     }
-}})
+})

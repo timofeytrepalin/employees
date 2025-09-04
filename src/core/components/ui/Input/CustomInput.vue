@@ -10,6 +10,7 @@
       :readonly="readonly"
       :maxlength="maxlength"
       :required="required"
+      :lang
       @input="handleInput"
       @blur="validateInput"
     />
@@ -20,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import { Language } from '@/i18n/consts';
 import { ref, watch } from 'vue';
 
 interface Props {
@@ -31,6 +33,7 @@ interface Props {
   required?: boolean;
   maxlength?: number;
   validateOnBlur?: boolean;
+  lang?: Language
   validationFunction?: (value:string) => {isValid: boolean, error: string}
 }
 
@@ -42,6 +45,7 @@ const props = withDefaults(defineProps<Props>(), {
   required: false,
   validateOnBlur: true,
   placeholder: '',
+  lang: 'en'
 });
 
 const emit = defineEmits<{

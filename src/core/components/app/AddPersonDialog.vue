@@ -34,7 +34,7 @@
 
         <div class="employee-form__field">
           <p class="employee-form__label">{{ t('addPersonForm.joiningDate') }}</p>
-          <CustomInput v-model="form.joiningDate" class="employee-form__input" :validationFunction="employeeValidation.validateDate" type="date" />
+          <VueDatePicker v-model="form.joiningDate" text-input :lang="language" :teleport="true" dark/>
         </div>
       </div>
 
@@ -46,15 +46,19 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, toRaw } from 'vue'
+import { computed, reactive, toRaw } from 'vue'
 import BaseModal from '@/core/components/ui/Dialog/NativeModal.vue'
 import CustomInput from '@/core/components/ui/Input/CustomInput.vue'
 import CustomButton from '@/core/components/ui/Button/CustomButton.vue'
 import { useI18n } from 'vue-i18n'
 
 import { useEmployeeValidation } from '@/core/composables/useEmployeeValidation'
+import { useSettings } from '@/stores/settings'
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
 
 const employeeValidation = useEmployeeValidation();
+const settingsStore = useSettings();
 const { t } = useI18n()
 
 interface Props {
@@ -66,6 +70,8 @@ withDefaults(defineProps<Props>(), {
 })
 
 const emit = defineEmits(['close', 'submit'])
+
+const language = computed(() => settingsStore.language)
 
 
 const form = reactive({
