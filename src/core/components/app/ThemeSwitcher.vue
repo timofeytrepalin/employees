@@ -7,7 +7,7 @@
     >
       <span class="theme-switcher__thumb"></span>
     </button>
-    <div>LALA</div>
+    <div>Dark Theme</div>
   </div>
 </template>
 

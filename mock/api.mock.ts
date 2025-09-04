@@ -121,7 +121,7 @@ function createEmployee(employeeInfo: EmployeeInfo): Employee {
 }
 
 // 50 случайных сотрудников
-const employees = generateEmployees(70);
+export const employees = generateEmployees(70);
 
 export default defineMock([
     {

@@ -3,15 +3,26 @@
   "rewrites": [
     {
       "source": "/api/employees",
-      "destination": "/api/employees.json"
+      "destination": "/api/employees"
     }
   ],
-  "builds": [
+  "headers": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build"
-    }
-  ],
+      "source": "/api/:path*",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
   "routes": [
     {
       "src": "/assets/(.*)",
@@ -23,5 +34,7 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
+  ]
+}
   ]
 }
