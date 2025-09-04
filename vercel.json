@@ -22,7 +22,9 @@
           "key": "Content-Type",
           "value": "application/json"
         }
-      ],
+      ]
+      
+}],
   "routes": [
     {
       "src": "/assets/(.*)",
@@ -34,7 +36,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
-}
   ]
 }
