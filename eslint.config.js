@@ -8,7 +8,7 @@ import prettier from 'eslint-config-prettier';
 export default [
   {
     files: ['**/*.{vue,ts,js,jsx,tsx}'],
-    ignores: ['node_modules/**', 'dist/**', '.prettierrc.js', 'eslint.config.js'],
+    ignores: ['node_modules/**', 'dist/**', '.prettierrc.js', 'eslint.config.js', 'api/**'],
     languageOptions: {
       parser: vueParser,
       parserOptions: {

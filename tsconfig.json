@@ -22,7 +22,6 @@
     "src/**/*",
     "src/**/*.vue",
     "mock/**/*",
-    "api/**/*",
     "vite.config.ts",
     "auto-imports.d.ts"
   ],
