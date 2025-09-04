@@ -23,8 +23,8 @@
           "value": "application/json"
         }
       ]
-      
-}],
+    }
+  ],
   "routes": [
     {
       "src": "/assets/(.*)",
@@ -36,5 +36,8 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "env": {
+    "VERCEL_FORCE_NO_BUILD_CACHE": "1"
+  }
 }
