@@ -23,9 +23,9 @@ export default defineConfig({
       include: [path.resolve(__dirname, './src/i18n/lang/**')]
     }),
     
-    mockDevServerPlugin({
-      log: 'debug',
-    }),
+    // mockDevServerPlugin({
+    //   log: 'debug',
+    // }),
     Components({
       dts: true,
       dirs: ['src/components']
@@ -52,14 +52,14 @@ export default defineConfig({
     }
   },
 
-  server: {
-    cors: true,
-    proxy: {
-       '/api': {
-        target: 'http://localhost:5173', // Локальный сервер для моков
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-      },
-    }
+  // server: {
+  //   cors: true,
+  //   proxy: {
+  //      '/api': {
+  //       target: 'http://localhost:5173', // Локальный сервер для моков
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/api/, ''),
+  //     },
+  //     },
+  //   }
 })

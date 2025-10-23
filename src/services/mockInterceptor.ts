@@ -1,14 +1,11 @@
 import { mockServer } from './mockServer';
 
-// Проверяем, нужно ли использовать моки
-const shouldUseMocks = import.meta.env.DEV; // Только в development
+// const shouldUseMocks = import.meta.env.DEV; // Только в development
 
 export const setupMockInterceptor = (axiosInstance: any) => {
-  if (!shouldUseMocks) return; // На продакшене используем реальный сервер
+  // if (!shouldUseMocks) return; // На продакшене используем реальный сервер
 
-  // Перехватываем запросы к API
   axiosInstance.interceptors.request.use((config: any) => {
-    // Если это запрос к нашему API, перехватываем его
     if (config.url?.includes('/api/employees')) {
       config.adapter = async () => {
         try {
