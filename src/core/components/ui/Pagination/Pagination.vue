@@ -1,13 +1,7 @@
 <template>
   <div class="pagination">
-    <button 
-      class="pagination__button"
-      :disabled="currentPage === 1"
-      @click="changePage(currentPage - 1)"
-    >
-      &lt;
-    </button>
-    
+    <button class="pagination__button" :disabled="currentPage === 1" @click="changePage(currentPage - 1)">&lt;</button>
+
     <button
       v-for="page in visiblePages"
       :key="page"
@@ -17,12 +11,8 @@
     >
       {{ page }}
     </button>
-    
-    <button
-      class="pagination__button"
-      :disabled="currentPage === totalPages"
-      @click="changePage(currentPage + 1)"
-    >
+
+    <button class="pagination__button" :disabled="currentPage === totalPages" @click="changePage(currentPage + 1)">
       &gt;
     </button>
   </div>
@@ -35,23 +25,23 @@ const props = defineProps({
   currentPage: {
     type: Number,
     required: true,
-    validator: (value: number) => value > 0
+    validator: (value: number) => value > 0,
   },
   totalItems: {
     type: Number,
     required: true,
-    validator: (value: number) => value >= 0
+    validator: (value: number) => value >= 0,
   },
   itemsPerPage: {
     type: Number,
     default: 10,
-    validator: (value: number) => value > 0
+    validator: (value: number) => value > 0,
   },
   maxVisiblePages: {
     type: Number,
     default: 5,
-    validator: (value: number) => value >= 3
-  }
+    validator: (value: number) => value >= 3,
+  },
 });
 
 const emit = defineEmits(['page-changed']);
@@ -62,11 +52,11 @@ const visiblePages = computed(() => {
   const half = Math.floor(props.maxVisiblePages / 2);
   let start = Math.max(1, props.currentPage - half);
   const end = Math.min(start + props.maxVisiblePages - 1, totalPages.value);
-  
+
   if (end - start + 1 < props.maxVisiblePages) {
     start = Math.max(1, end - props.maxVisiblePages + 1);
   }
-  
+
   return Array.from({ length: end - start + 1 }, (_, i) => start + i);
 });
 

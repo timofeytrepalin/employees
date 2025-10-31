@@ -23,25 +23,25 @@ export function useEmployeeValidation(): UseEmployeeValidationReturn {
   const validateEmail = (email: string): ValidationResult => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValid = re.test(email);
-    return { 
-      isValid, 
-      error: isValid ? '' : 'Invalid email format' 
+    return {
+      isValid,
+      error: isValid ? '' : 'Invalid email format',
     };
   };
 
   const validateDate = (date: Date | string): ValidationResult => {
     const isValid = !isNaN(new Date(date).getTime());
-    return { 
-      isValid, 
-      error: isValid ? '' : 'Invalid date' 
+    return {
+      isValid,
+      error: isValid ? '' : 'Invalid date',
     };
   };
 
   const validatePhone = (phone: string): ValidationResult => {
     const isValid = /^[\d\s\-()+x]{5,20}$/.test(phone);
-    return { 
-      isValid, 
-      error: isValid ? '' : 'Invalid phone format' 
+    return {
+      isValid,
+      error: isValid ? '' : 'Invalid phone format',
     };
   };
 
@@ -79,7 +79,7 @@ export function useEmployeeValidation(): UseEmployeeValidationReturn {
 
     return {
       isValid: Object.keys(errors).length === 0,
-      errors
+      errors,
     };
   };
 

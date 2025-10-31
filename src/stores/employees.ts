@@ -2,55 +2,62 @@ import { defineStore } from 'pinia';
 import { computed, inject, ref, shallowReactive } from 'vue';
 import type { Employee, EmployeeInfo } from '@/types/employees';
 import { httpService } from '@/services/http';
-
+import { useI18n } from 'vue-i18n';
 
 export const useEmployees = defineStore('employees', () => {
   const employees = shallowReactive<Array<Employee>>([]);
   const notify = inject<(options: unknown) => void>('notify');
   let isLoading = ref(false);
+  const { t } = useI18n();
 
   const employeesNumber = computed(() => {
     return employees.length;
   });
 
   const designations = computed(() => {
-    return Array.from(new Set(employees.map(employee => employee.designation)))
-  })
+    return Array.from(new Set(employees.map((employee) => employee.designation)));
+  });
 
   async function loadEmployees() {
     isLoading.value = true;
-    httpService.get('/api/employees')
-      .then((response) => {
-        employees.splice(0, employees.length, ...response.data);
-        if (notify)
-          notify({
-            title: 'URA',
-            message: 'Operation successful!',
-            type: 'success',
-            duration: 3000,
-          });
-        isLoading.value = false;
-      })
+    httpService.get('/api/employees').then((response) => {
+      employees.splice(0, employees.length, ...response.data);
+      if (notify)
+        notify({
+          title: t('notification.success'),
+          message: t('notification.dataLoaded'),
+          type: 'success',
+          duration: 3000,
+        });
+      isLoading.value = false;
+    });
   }
 
   async function addEmployee(employeeInfo: EmployeeInfo) {
-    httpService.post('/api/employees', employeeInfo)
-      .then((response) => {
-        employees.push(response.data);
-      })
+    httpService.post('/api/employees', employeeInfo).then((response) => {
+      employees.push(response.data);
+      if (notify)
+        notify({
+          title: t('notification.success'),
+          message: t('notification.created'),
+          type: 'success',
+          duration: 3000,
+        });
+    });
   }
 
   async function removeEmployee(id: string) {
     isLoading.value = true;
-    httpService.delete(`/api/employees/${id}`)
+    httpService
+      .delete(`/api/employees/${id}`)
       .then(() => {
         const idx = employees.findIndex((item) => item.id === id);
         employees.splice(idx, 1);
         isLoading.value = false;
         if (notify)
           notify({
-            title: 'URA',
-            message: 'Operation successful!',
+            title: t('notification.success'),
+            message: t('notification.deleted'),
             type: 'success',
             duration: 3000,
           });
@@ -58,21 +65,20 @@ export const useEmployees = defineStore('employees', () => {
       .catch(() => {
         if (notify)
           notify({
-            title: 'URA',
-            message: 'Operation failed!',
+            title: t('notification.error'),
+            message: t('notification.operationFailed'),
             type: 'error',
             duration: 3000,
           });
-      })
+      });
   }
-
 
   return {
     isLoading,
     employees,
     employeesNumber,
     designations,
-    loadEmployees,    
+    loadEmployees,
     addEmployee,
     removeEmployee,
   };

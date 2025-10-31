@@ -11,29 +11,29 @@
 </template>
 
 <script lang="ts" setup>
-import BaseModal from '@/core/components/ui/Dialog/NativeModal.vue'
-import CustomButton from '@/core/components/ui/Button/CustomButton.vue'
-import { useI18n } from 'vue-i18n'
+import BaseModal from '@/core/components/ui/Dialog/NativeModal.vue';
+import CustomButton from '@/core/components/ui/Button/CustomButton.vue';
+import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 interface Props {
-  isOpen: boolean
-  confirmTitle?: string
-  title?: string
+  isOpen: boolean;
+  confirmTitle?: string;
+  title?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   isOpen: false,
   confirmTitle: 'Confirm',
-  title: 'Confirm'
-})
+  title: 'Confirm',
+});
 
-const emit = defineEmits(['close', 'confirm'])
+const emit = defineEmits(['close', 'confirm']);
 
 const handleConfirm = () => {
-  emit('confirm')
-}
+  emit('confirm');
+};
 </script>
 
 <style lang="scss">
@@ -59,7 +59,9 @@ const handleConfirm = () => {
     border: 1px solid var(--color-base-border-primary);
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: background var(--transition-ease) 0.2s, border-color var(--transition-ease) 0.2s;
+    transition:
+      background var(--transition-ease) 0.2s,
+      border-color var(--transition-ease) 0.2s;
 
     &:hover {
       background: var(--color-base-background-quaternary);
@@ -71,11 +73,7 @@ const handleConfirm = () => {
       border-color: var(--color-status-success);
 
       &:hover {
-        background: linear-gradient(
-          98.19deg,
-          rgba(40, 167, 69, 1) -4.08%,
-          rgba(9, 255, 144, 1) 309.87%
-        );
+        background: linear-gradient(98.19deg, rgba(40, 167, 69, 1) -4.08%, rgba(9, 255, 144, 1) 309.87%);
       }
     }
   }

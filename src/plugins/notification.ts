@@ -5,7 +5,6 @@ import Notification from '@/core/components/ui/Notification/Notification.vue';
 
 type NotificationType = 'success' | 'error' | 'warning' | 'info';
 
-// Define the interface for Notification options
 interface NotificationOptions {
   message: string;
   title?: string;
@@ -15,7 +14,6 @@ interface NotificationOptions {
   icon?: string;
 }
 
-// Define the props expected by the Notification component
 interface NotificationProps {
   message: string;
   title?: string;
@@ -25,11 +23,10 @@ interface NotificationProps {
   icon?: string;
 }
 
-// Notification queue
 const notificationQueue: VNode[] = [];
 
 export const notificationPlugin = {
-  install(app: App):void {
+  install(app: App): void {
     let notificationContainer: HTMLDivElement | null = null;
 
     // SSR compatibility
@@ -66,8 +63,7 @@ export const notificationPlugin = {
         },
       };
 
-      // Explicitly type the Notification component to help TypeScript
-      const vnode = h(Notification as any, props); // Use 'as any' temporarily to bypass strict typing
+      const vnode = h(Notification as any, props);
 
       render(vnode, container);
       notificationContainer.appendChild(container);
@@ -93,7 +89,6 @@ export const notificationPlugin = {
   },
 };
 
-// TypeScript declaration for $notify
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     $notify: (options: NotificationOptions) => void;

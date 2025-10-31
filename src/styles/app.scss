@@ -44,7 +44,6 @@ button {
   background-color: var(--color-base-background-utility);
 }
 
-
 .flex-col {
   display: flex;
   flex-flow: column nowrap;
@@ -90,8 +89,6 @@ button {
     background-size: 100% 1px;
   }
 }
-
-
 
 .v-loading-spinner {
   &__inner {

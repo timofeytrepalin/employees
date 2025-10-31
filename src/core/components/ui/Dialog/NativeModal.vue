@@ -9,17 +9,20 @@
             </slot>
             <button class="modal__close" @click="handleClose" aria-label="Закрыть">
               <svg class="modal__close-icon" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                <path
+                  fill="currentColor"
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
               </svg>
             </button>
           </div>
 
           <div class="modal__body">
-            <slot/>
+            <slot />
           </div>
 
           <div class="modal__footer" v-if="$slots.footer">
-            <slot name="footer"/>
+            <slot name="footer" />
           </div>
         </div>
       </div>
@@ -32,16 +35,15 @@ const props = defineProps({
   isOpen: Boolean,
   title: {
     type: String,
-    default: ''
-  }, 
+    default: '',
+  },
   closeOnOverlayClick: {
     type: Boolean,
-    default: true
-  }
+    default: true,
+  },
 });
 
 const emit = defineEmits(['close']);
-
 
 const handleClose = () => {
   if (props.closeOnOverlayClick) {
@@ -58,13 +60,13 @@ const handleClose = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--background-base); // Градиентный фон для кальянной атмосферы
+  background: var(--background-base);
 
   &__overlay {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); // Тёмный оверлей с дымным эффектом
-    backdrop-filter: var(--background-filter); // Размытие (20px)
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: var(--background-filter);
     transition: opacity var(--transition-ease) 0.3s;
   }
 
@@ -75,10 +77,10 @@ const handleClose = () => {
     left: 50%;
     transform: translate(-50%, -50%);
     max-height: 90vh;
-    background: var(--color-base-background-secondary); // Тёмный серый фон
-    border: 1px solid var(--color-base-border-primary); // Тонкая граница
-    border-radius: var(--border-radius-medium); // 8px
-    box-shadow: var(--shadow-dark); // Мягкая тень
+    background: var(--color-base-background-secondary);
+    border: 1px solid var(--color-base-border-primary);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-dark);
     overflow: hidden;
     transition: all var(--transition-ease) 0.3s;
   }
@@ -87,61 +89,60 @@ const handleClose = () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--basic-spacing); // 16px
-    border-bottom: 1px solid var(--color-base-border-secondary); // Светлая граница
-    background: var(--color-base-background-utility); // Утилитарный тёмный фон
+    padding: var(--basic-spacing);
+    border-bottom: 1px solid var(--color-base-border-secondary);
+    background: var(--color-base-background-utility);
   }
 
   &__title {
     margin: 0;
-    color: var(--color-base-content-primary); // Белый текст
+    color: var(--color-base-content-primary);
     font-family: var(--font-family-default);
-    font-size: var(--font-size-big); // 18px
-    font-weight: var(--font-weight-big); // 700
-    line-height: var(--line-height-big); // 1.6
-    letter-spacing: var(--letter-spacing-small); // 0.04em
+    font-size: var(--font-size-big);
+    font-weight: var(--font-weight-big);
+    line-height: var(--line-height-big);
+    letter-spacing: var(--letter-spacing-small);
   }
 
   &__close {
     background: none;
     border: none;
-    padding: var(--basic-spacing-small); // 8px
-    color: var(--color-base-content-tertiary); // Бледный серый
+    padding: var(--basic-spacing-small);
+    color: var(--color-base-content-tertiary);
     cursor: pointer;
     transition: color var(--transition-ease) 0.2s;
 
     &:hover {
-      color: var(--color-base-content-primary); // Белый при наведении
+      color: var(--color-base-content-primary);
     }
   }
 
   &__close-icon {
-    width: var(--size-small); // 24px
-    height: var(--size-small); // 24px
+    width: var(--size-small);
+    height: var(--size-small);
     display: block;
   }
 
   &__body {
-    padding: var(--basic-spacing-medium); // 24px
-    max-height: calc(90vh - var(--size-large) * 2); // Учитывает header/footer
+    padding: var(--basic-spacing-medium);
+    max-height: calc(90vh - var(--size-large) * 2);
     overflow-y: auto;
-    color: var(--color-base-content-secondary); // Серый текст
+    color: var(--color-base-content-secondary);
     font-family: var(--font-family-default);
-    font-size: var(--font-size-base); // 14px
-    line-height: var(--line-height-base); // 1.5
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
   }
 
   &__footer {
     padding: var(--basic-spacing); // 16px
-    border-top: 1px solid var(--color-base-border-secondary); // Светлая граница
+    border-top: 1px solid var(--color-base-border-secondary);
     display: flex;
     justify-content: flex-end;
-    gap: var(--basic-spacing-small); // 8px
-    background: var(--color-base-background-utility); // Утилитарный фон
+    gap: var(--basic-spacing-small);
+    background: var(--color-base-background-utility);
   }
 }
 
-/* Анимации */
 .modal-enter-from,
 .modal-leave-to {
   opacity: 0;
@@ -149,7 +150,7 @@ const handleClose = () => {
 
 .modal-enter-from .modal__container,
 .modal-leave-to .modal__container {
-  transform: translateY(-20px) scale(0.95); // Мягкое масштабирование
+  transform: translateY(-20px) scale(0.95);
 }
 
 .modal-enter-active,
@@ -159,6 +160,8 @@ const handleClose = () => {
 
 .modal-enter-active .modal__container,
 .modal-leave-active .modal__container {
-  transition: transform var(--transition-ease) 0.3s, opacity var(--transition-ease) 0.3s;
+  transition:
+    transform var(--transition-ease) 0.3s,
+    opacity var(--transition-ease) 0.3s;
 }
 </style>

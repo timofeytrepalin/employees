@@ -1,5 +1,5 @@
 <template>
-  <base-modal :isOpen :title="t('addPersonForm.email')" @close="emit('close')">
+  <base-modal :isOpen :title="t('addPersonForm.title')" @close="emit('close')">
     <div class="employee-form">
       <div class="employee-form__grid">
         <div class="employee-form__field">
@@ -9,7 +9,12 @@
 
         <div class="employee-form__field">
           <p class="employee-form__label">{{ t('addPersonForm.email') }}</p>
-          <CustomInput v-model="form.email" class="employee-form__input" :validationFunction="employeeValidation.validateEmail" type="email" />
+          <CustomInput
+            v-model="form.email"
+            class="employee-form__input"
+            :validationFunction="employeeValidation.validateEmail"
+            type="email"
+          />
         </div>
 
         <div class="employee-form__field">
@@ -19,22 +24,27 @@
 
         <div class="employee-form__field">
           <p class="employee-form__label">{{ t('addPersonForm.employeeCode') }}</p>
-          <CustomInput v-model="form.employeeCode" class="employee-form__input" required/>
+          <CustomInput v-model="form.employeeCode" class="employee-form__input" required />
         </div>
 
         <div class="employee-form__field">
           <p class="employee-form__label">{{ t('addPersonForm.designation') }}</p>
-          <CustomInput v-model="form.designation" class="employee-form__input" required/>
+          <CustomInput v-model="form.designation" class="employee-form__input" required />
         </div>
 
         <div class="employee-form__field">
           <p class="employee-form__label">{{ t('addPersonForm.phone') }}</p>
-          <CustomInput v-model="form.phone" class="employee-form__input" :validationFunction="employeeValidation.validatePhone" type="text" />
+          <CustomInput
+            v-model="form.phone"
+            class="employee-form__input"
+            :validationFunction="employeeValidation.validatePhone"
+            type="text"
+          />
         </div>
 
         <div class="employee-form__field">
           <p class="employee-form__label">{{ t('addPersonForm.joiningDate') }}</p>
-          <VueDatePicker v-model="form.joiningDate" text-input :lang="language" :teleport="true" dark/>
+          <VueDatePicker v-model="form.joiningDate" text-input :lang="language" :teleport="true" dark />
         </div>
       </div>
 
@@ -46,33 +56,32 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, reactive, toRaw } from 'vue'
-import BaseModal from '@/core/components/ui/Dialog/NativeModal.vue'
-import CustomInput from '@/core/components/ui/Input/CustomInput.vue'
-import CustomButton from '@/core/components/ui/Button/CustomButton.vue'
-import { useI18n } from 'vue-i18n'
+import { computed, reactive, toRaw } from 'vue';
+import BaseModal from '@/core/components/ui/Dialog/NativeModal.vue';
+import CustomInput from '@/core/components/ui/Input/CustomInput.vue';
+import CustomButton from '@/core/components/ui/Button/CustomButton.vue';
+import { useI18n } from 'vue-i18n';
 
-import { useEmployeeValidation } from '@/core/composables/useEmployeeValidation'
-import { useSettings } from '@/stores/settings'
+import { useEmployeeValidation } from '@/core/composables/useEmployeeValidation';
+import { useSettings } from '@/stores/settings';
 import VueDatePicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
+import '@vuepic/vue-datepicker/dist/main.css';
 
 const employeeValidation = useEmployeeValidation();
 const settingsStore = useSettings();
-const { t } = useI18n()
+const { t } = useI18n();
 
 interface Props {
-  isOpen: boolean
+  isOpen: boolean;
 }
 
 withDefaults(defineProps<Props>(), {
   isOpen: false,
-})
+});
 
-const emit = defineEmits(['close', 'submit'])
+const emit = defineEmits(['close', 'submit']);
 
-const language = computed(() => settingsStore.language)
-
+const language = computed(() => settingsStore.language);
 
 const form = reactive({
   name: '',
@@ -82,11 +91,11 @@ const form = reactive({
   designation: '',
   phone: '',
   joiningDate: '',
-})
+});
 
 const handleSave = () => {
-  emit('submit', toRaw(form))
-}
+  emit('submit', toRaw(form));
+};
 </script>
 
 <style lang="scss">

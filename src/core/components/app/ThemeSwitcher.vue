@@ -1,8 +1,8 @@
 <template>
-  <div class="theme_switcher__container">
+  <div class="theme-switcher__container">
     <button
       class="theme-switcher__toggle"
-      :class="{ 'theme-switcher__toggle_active': appTheme === 'dark' }"
+      :class="{ 'theme-switcher__toggle--active': appTheme === 'dark' }"
       @click="toggleTheme"
     >
       <span class="theme-switcher__thumb"></span>
@@ -25,13 +25,13 @@ const toggleTheme = () => {
 </script>
 
 <style lang="scss">
-
-.theme_switcher__container {
+.theme-switcher__container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
 .theme-switcher__toggle {
   position: relative;
   width: 48px;
@@ -55,13 +55,9 @@ const toggleTheme = () => {
     box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
   }
 
-  &_active {
+  &--active {
     background: var(--color-status-success);
-    background-image: radial-gradient(
-      circle at center,
-      var(--color-status-success) 0%,
-      rgba(52, 199, 89, 0.7) 70%
-    );
+    background-image: radial-gradient(circle at center, var(--color-status-success) 0%, rgba(52, 199, 89, 0.7) 70%);
   }
 }
 
@@ -73,6 +69,7 @@ const toggleTheme = () => {
   position: absolute;
   transition: transform var(--transition-ease) 0.2s;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  left: 2px;
 
   .theme-switcher__toggle--active & {
     transform: translateX(20px);

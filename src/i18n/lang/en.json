@@ -3,6 +3,7 @@
   "cancel": "Cancel",
   "confirm": "Confirm",
   "delete": "Delete",
+  "theme": "Theme",
   "dashboard": {
     "title": "Dashboard",
     "addEmployee": "Add Employee",
@@ -25,8 +26,10 @@
   "notification": {
     "success": "Success",
     "error": "Error",
-    "deleted": "Employee deleted successfully!",
-    "created": "Employee created successfully!"
+    "deleted": "Employee deleted successfully",
+    "created": "Employee created successfully",
+    "dataLoaded": "All employees loaded",
+    "operationFailed": "Something go wrong"
   },
   "employeeTable": {
     "basicInfo": "Basic Info",
@@ -35,5 +38,14 @@
     "phoneNumber": "Phone Number",
     "joiningDate": "Joining Date",
     "action": "Action"
+  },
+  "designations": {
+    "all": "All Employees",
+    "dataanalyst": "Data Analyst",
+    "softwareengineer": "Software Engineer",
+    "productmanager": "Product Manager",
+    "uxdesigner": "UX Designer",
+    "devopsspecialist": "DevOps Specialist",
+    "qaengineer": "QA Engineer"
   }
 }

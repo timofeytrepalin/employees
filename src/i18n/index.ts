@@ -1,64 +1,77 @@
 import { createI18n, type I18n, type I18nOptions } from 'vue-i18n';
-import { isRef } from 'vue'
+import type { Composer } from 'vue-i18n';
 
-import messages from '@intlify/unplugin-vue-i18n/messages'
+import messages from '@intlify/unplugin-vue-i18n/messages';
 import { APP_LANGUAGES, type Language } from './consts';
 import dayjs from 'dayjs';
 
-const loadedLanguages: Array<Language> = ['en'];
+import 'dayjs/locale/ru';
+import 'dayjs/locale/fr';
+
+// const loadedLanguages: Set<Language> = new Set(['en']);
 
 let i18n: I18n | undefined;
 
 export function setupI18n(options?: I18nOptions): I18n {
-  const locale = options?.locale ?? 'en';
+  const locale = getLocale();
 
-  i18n = createI18n<false>({
+  i18n = createI18n({
     locale,
     fallbackLocale: 'en',
     messages,
     legacy: false,
     globalInjection: true,
+    ...options,
   });
 
+  dayjs.locale(locale);
   return i18n;
 }
 
-
-async function setI18nLocale(lang: Language): Promise<void> {
-  if (!(i18n && isRef(i18n.global.locale))) return;
-
-  const locale = lang;
-
-  if (!loadedLanguages.includes(locale)) {
-    loadedLanguages.push(locale);
-  }
-
-  i18n.global.locale.value = locale;
+function setI18nLocale(lang: Language): void {
+  if (!i18n) return;
+  const composer = i18n.global as Composer;
+  composer.locale.value = lang;
 }
 
-async function setDayJsLocale(lang: Language): Promise<void> {
+function setDayJsLocale(lang: Language): void {
   try {
-    const localeModule = await import(`dayjs/locale/${lang}.js`);
-    console.log('Loaded locale:', localeModule);
-    dayjs.locale(lang, localeModule.default)
-    console.log('Current locale:', dayjs.locale())
+    dayjs.locale(lang);
   } catch (error) {
-    console.error(`[dayjs]: unsupported locale "${lang}"`, error);
+    console.error(`[dayjs]: Failed to set locale "${lang}"`, error);
+    dayjs.locale('en');
   }
 }
 
 export function getLocale(): Language {
-  const storageLang = localStorage.getItem('language');
-  return APP_LANGUAGES.includes(storageLang as Language) 
-      ? storageLang as Language
-      : 'en'
+  try {
+    const storageLang = localStorage.getItem('language');
+    return APP_LANGUAGES.includes(storageLang as Language) ? (storageLang as Language) : 'en';
+  } catch {
+    return 'en';
+  }
 }
-
 
 export async function setLocale(locale: Language): Promise<void> {
-  await setI18nLocale(locale);
-  await setDayJsLocale(locale);
+  if (!APP_LANGUAGES.includes(locale)) {
+    return;
+  }
+
+  try {
+    setI18nLocale(locale);
+    setDayJsLocale(locale);
+    localStorage.setItem('language', locale);
+  } catch (error) {
+    console.error(`Failed to set locale to ${locale}:`, error);
+    throw error;
+  }
 }
 
+export function getI18n(): I18n {
+  if (!i18n) {
+    throw new Error('i18n instance not initialized. Call setupI18n() first.');
+  }
+  return i18n;
+}
 
 export default i18n;

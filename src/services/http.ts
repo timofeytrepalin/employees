@@ -7,6 +7,6 @@ export const httpService = axios.create({
   responseType: 'json',
 });
 
-setupMockInterceptor(httpService)
+setupMockInterceptor(httpService);
 
 export default httpService;

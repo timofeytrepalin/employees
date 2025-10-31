@@ -1,7 +1,7 @@
 <!-- src/components/Notification/Notification.vue -->
 <template>
   <transition name="notification">
-    <div 
+    <div
       v-if="isVisible"
       class="notification"
       :class="[`notification--${type}`, { 'notification--closing': isClosing }]"
@@ -37,7 +37,7 @@ const props = defineProps({
   message: { type: String, required: true },
   type: { type: String as () => NotificationType, default: 'info' },
   duration: { type: Number, default: 5000 },
-  id: { type: String, required: true }
+  id: { type: String, required: true },
 });
 
 const emit = defineEmits(['close']);
@@ -53,7 +53,7 @@ const typeIcon = computed(() => {
     success: SuccessIcon,
     error: ErrorIcon,
     warning: WarningIcon,
-    info: InfoIcon
+    info: InfoIcon,
   };
   return icons[props.type];
 });

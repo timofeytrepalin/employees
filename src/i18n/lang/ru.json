@@ -1,43 +1,51 @@
 {
-  "save": "Сохранить",
-  "cancel": "Отмена",
-  "confirm": "Подтвердить",
-  "delete": "Удалить",
-  "dashboard": {
-    "title": "Панель управления",
-    "addEmployee": "Добавить сотрудника",
-    "deleteConfirm": "Вы уверены, что хотите удалить этого сотрудника?"
-  },
-  "addPersonForm": {
-    "title": "Добавить нового сотрудника",
-    "name": "Имя",
-    "email": "Email",
-    "avatar": "Ссылка на аватар",
-    "employeeCode": "Код сотрудника",
-    "designation": "Должность",
-    "phone": "Номер телефона",
-    "joiningDate": "Дата приема",
     "save": "Сохранить",
     "cancel": "Отмена",
     "confirm": "Подтвердить",
-    "delete": "Удалить"
-  },
-  "notification": {
-    "success": "Успешно",
-    "error": "Ошибка",
-    "deleted": "Сотрудник успешно удален!",
-    "created": "Сотрудник успешно создан!"
-  },
-  "employeeTable": {
-    "basicInfo": "Основная информация",
-    "employeeCode": "Код сотрудника",
-    "designation": "Должность",
-    "phoneNumber": "Номер телефона",
-    "joiningDate": "Дата приема",
-    "action": "Действие"
-  },
-  "messages": {
-    "success" : "Успешно",
-    "error" : "Ошибка"
+    "delete": "Удалить",
+    "theme": "Тема",
+    "dashboard": {
+      "title": "Панель управления",
+      "addEmployee": "Добавить сотрудника",
+      "deleteConfirm": "Вы уверены, что хотите удалить этого сотрудника?"
+    },
+    "addPersonForm": {
+      "title": "Добавить нового сотрудника",
+      "name": "Имя",
+      "email": "Электронная почта",
+      "avatar": "Ссылка на аватар",
+      "employeeCode": "Код сотрудника",
+      "designation": "Должность",
+      "phone": "Номер телефона",
+      "joiningDate": "Дата приёма",
+      "save": "Сохранить",
+      "cancel": "Отмена",
+      "confirm": "Подтвердить",
+      "delete": "Удалить"
+    },
+    "notification": {
+      "success": "Успех",
+      "error": "Ошибка",
+      "deleted": "Сотрудник успешно удалён",
+      "created": "Сотрудник успешно создан",
+      "dataLoaded": "Все сотрудники загружены",
+      "operationFailed": "Что-то пошло не так"
+    },
+    "employeeTable": {
+      "basicInfo": "Основная информация",
+      "employeeCode": "Код сотрудника",
+      "designation": "Должность",
+      "phoneNumber": "Номер телефона",
+      "joiningDate": "Дата приёма",
+      "action": "Действие"
+    },
+    "designations": {
+      "all": "Все сотрудники",
+      "dataanalyst": "Аналитик данных",
+      "softwareengineer": "Инженер-программист",
+      "productmanager": "Менеджер продукта",
+      "uxdesigner": "UX-дизайнер",
+      "devopsspecialist": "DevOps-специалист",
+      "qaengineer": "Инженер по тестированию"
+    }
   }
-}

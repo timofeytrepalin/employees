@@ -23,9 +23,9 @@ button.custom-button {
   // border: 1px solid var(--color-base-border-primary); // Тонкая граница
   border-radius: var(--border-radius-medium); // 16px
   background: radial-gradient(
-    circle at center,    
+    circle at center,
     rgba(0, 0, 0, 0) 90%,
-    var(--color-base-background-utility) 0%,
+    var(--color-base-background-utility) 0%
   ); // Радиальный градиент от утилитарного фона к прозрачному
   color: var(--color-base-on-primary); // Белый/чёрный текст
   font-family: var(--font-family-system);

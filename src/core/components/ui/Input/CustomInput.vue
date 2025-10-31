@@ -33,8 +33,8 @@ interface Props {
   required?: boolean;
   maxlength?: number;
   validateOnBlur?: boolean;
-  lang?: Language
-  validationFunction?: (value:string) => {isValid: boolean, error: string}
+  lang?: Language;
+  validationFunction?: (value: string) => { isValid: boolean; error: string };
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -45,7 +45,7 @@ const props = withDefaults(defineProps<Props>(), {
   required: false,
   validateOnBlur: true,
   placeholder: '',
-  lang: 'en'
+  lang: 'en',
 });
 
 const emit = defineEmits<{
@@ -65,7 +65,7 @@ const validate = (value: string) => {
   if (props.validationFunction) {
     const validationResult = props.validationFunction(value);
     errorMessage.value = validationResult.error;
-    return validationResult.isValid;  
+    return validationResult.isValid;
   }
 
   errorMessage.value = '';
@@ -75,7 +75,7 @@ const validate = (value: string) => {
 const handleInput = (event: Event) => {
   const value = (event.target as HTMLInputElement).value;
   emit('update:modelValue', value);
-  
+
   if (!props.validateOnBlur && isTouched.value) {
     validate(value);
   }
@@ -88,11 +88,14 @@ const validateInput = () => {
 };
 
 // Валидация при изменении required
-watch(() => props.required, () => {
-  if (isTouched.value) {
-    validate(props.modelValue || '');
+watch(
+  () => props.required,
+  () => {
+    if (isTouched.value) {
+      validate(props.modelValue || '');
+    }
   }
-});
+);
 </script>
 
 <style lang="scss" scoped>

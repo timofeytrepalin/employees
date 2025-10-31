@@ -1,18 +1,17 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import Components from 'unplugin-vue-components/vite'
-import vueDevTools from 'vite-plugin-vue-devtools'
-import { mockDevServerPlugin } from 'vite-plugin-mock-dev-server'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import Components from 'unplugin-vue-components/vite';
+import vueDevTools from 'vite-plugin-vue-devtools';
 import svgLoader from 'vite-svg-loader';
 import dynamicImport from 'vite-plugin-dynamic-import';
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
-import path from 'node:path'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
+import path from 'node:path';
 
 export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
-    }
+    },
   },
   plugins: [
     vue(),
@@ -20,16 +19,13 @@ export default defineConfig({
     svgLoader(),
     dynamicImport(),
     VueI18nPlugin({
-      include: [path.resolve(__dirname, './src/i18n/lang/**')]
+      include: [path.resolve(__dirname, './src/i18n/lang/**')],
     }),
-    
-    // mockDevServerPlugin({
-    //   log: 'debug',
-    // }),
+
     Components({
       dts: true,
-      dirs: ['src/components']
-    })
+      dirs: ['src/components'],
+    }),
   ],
 
   css: {
@@ -41,25 +37,14 @@ export default defineConfig({
       },
     },
   },
-   
+
   base: '/',
   build: {
     outDir: 'dist',
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'index.html')
-      }
-    }
+        main: path.resolve(__dirname, 'index.html'),
+      },
+    },
   },
-
-  // server: {
-  //   cors: true,
-  //   proxy: {
-  //      '/api': {
-  //       target: 'http://localhost:5173', // Локальный сервер для моков
-  //       changeOrigin: true,
-  //       rewrite: (path) => path.replace(/^\/api/, ''),
-  //     },
-  //     },
-  //   }
-})
+});

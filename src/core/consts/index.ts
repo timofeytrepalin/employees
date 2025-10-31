@@ -1,5 +1,4 @@
-
-export type Language = 'en' | 'ru' | 'fr'
+export type Language = 'en' | 'ru' | 'fr';
 
 export const Languages = [
   { key: 'en', value: 'English', title: 'English (UK)' },
