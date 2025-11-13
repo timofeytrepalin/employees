@@ -53,7 +53,7 @@ const createCrispStars = () => {
     const color = colors[Math.floor(Math.random() * colors.length)];
 
     star.className = `crisp-star ${size} ${color}`;
-    star.setAttribute('data-theme', currentTheme.value);
+    star.setAttribute('data-theme', 'light');
     star.style.left = `${Math.random() * 100}%`;
     star.style.top = `${Math.random() * 100}%`;
     star.style.setProperty('--duration', `${2 + Math.random() * 3}s`);
