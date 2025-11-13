@@ -5,5 +5,5 @@ import type { App } from 'vue';
 
 export default function installPlugins<T>(app: App<T>): void {
   notificationPlugin.install(app);
-  dayJsinstall(app);
+  dayJsinstall();
 }
