@@ -65,6 +65,7 @@ withDefaults(
 
     &:hover {
       background-color: var(--color-status-background-success);
+      color: var(--color-content-primary);
     }
   }
 

@@ -4,7 +4,7 @@ import Notification from '@/core/components/ui/Notification/Notification.vue';
 
 type NotificationType = 'success' | 'error' | 'warning' | 'info';
 
-interface NotificationOptions {
+export interface NotificationOptions {
   message: string;
   title?: string;
   type?: NotificationType;
@@ -13,14 +13,7 @@ interface NotificationOptions {
   icon?: string;
 }
 
-interface NotificationProps {
-  message: string;
-  title?: string;
-  type?: NotificationType;
-  duration?: number;
-  onClose?: () => void;
-  icon?: string;
-}
+type NotificationProps = NotificationOptions;
 
 const notificationQueue: VNode[] = [];
 

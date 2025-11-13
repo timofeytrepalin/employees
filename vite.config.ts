@@ -7,7 +7,7 @@ import dynamicImport from 'vite-plugin-dynamic-import';
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 import path from 'node:path';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   resolve: {
     alias: {
       '@': '/src',
@@ -15,13 +15,12 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    vueDevTools(),
+    ...(command === 'serve' ? [vueDevTools()] : []),
     svgLoader(),
     dynamicImport(),
     VueI18nPlugin({
       include: [path.resolve(__dirname, './src/i18n/lang/**')],
     }),
-
     Components({
       dts: true,
       dirs: ['src/components'],
@@ -31,9 +30,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `
-          @use "@/styles/variables.scss" as *;
-        `,
+        additionalData: `@use "@/styles/variables.scss" as *;`,
       },
     },
   },
@@ -41,10 +38,18 @@ export default defineConfig({
   base: '/',
   build: {
     outDir: 'dist',
+    sourcemap: false,
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
       },
+      output: {
+        manualChunks: {
+          vue: ['vue'],
+          'vue-i18n': ['vue-i18n'],
+          pinia: ['pinia'],
+        },
+      },
     },
   },
-});
+}));

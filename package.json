@@ -14,7 +14,6 @@
   "dependencies": {
     "@desource/phone-mask": "^0.2.1",
     "@desource/phone-mask-vue": "^0.2.1",
-    "@vercel/node": "^5.3.20",
     "@vuepic/vue-datepicker": "^11.0.2",
     "@vueuse/core": "^13.5.0",
     "axios": "^1.10.0",

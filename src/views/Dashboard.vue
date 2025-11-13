@@ -24,6 +24,10 @@ onMounted(() => {
   employeesStore.loadEmployees();
 });
 
+const toggleIsAddPersonDialogOpen = () => {
+  isAddPersonDialogOpen.value = !isAddPersonDialogOpen.value;
+};
+
 const filteredEmployees = computed(() => {
   if (!selectedTab.value.filterName) return employeesStore.employees;
   return employeesStore.employees.filter(
@@ -47,6 +51,7 @@ const selectedTab = shallowRef<Tab>(tabs.value[0]);
 
 const onAddEmployee = (employeeInfo: EmployeeInfo) => {
   employeesStore.addEmployee(employeeInfo);
+  toggleIsAddPersonDialogOpen();
 };
 </script>
 
@@ -58,7 +63,7 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
     </div>
     <h2 class="dashboard__title">{{ t('dashboard.title') }}</h2>
     <div class="dashboard__head">
-      <CustomButton class="dashboard__button" @click="isAddPersonDialogOpen = true">
+      <CustomButton class="dashboard__button" @click="toggleIsAddPersonDialogOpen">
         <span>{{ t('dashboard.addEmployee') }}</span>
       </CustomButton>
     </div>
@@ -76,7 +81,7 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
     <div class="dashboard__table">
       <EmployeeTable :employees="filteredEmployees" />
     </div>
-    <add-person-dialog :isOpen="isAddPersonDialogOpen" @close="isAddPersonDialogOpen = false" @submit="onAddEmployee" />
+    <add-person-dialog :isOpen="isAddPersonDialogOpen" @close="toggleIsAddPersonDialogOpen" @submit="onAddEmployee" />
   </div>
 </template>
 

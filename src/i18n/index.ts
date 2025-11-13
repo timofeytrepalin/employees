@@ -1,14 +1,11 @@
 import { createI18n, type I18n, type I18nOptions } from 'vue-i18n';
 import type { Composer } from 'vue-i18n';
-
 import messages from '@intlify/unplugin-vue-i18n/messages';
 import { APP_LANGUAGES, type Language } from './consts';
 import dayjs from 'dayjs';
 
 import 'dayjs/locale/ru';
 import 'dayjs/locale/fr';
-
-// const loadedLanguages: Set<Language> = new Set(['en']);
 
 let i18n: I18n | undefined;
 
@@ -37,8 +34,7 @@ function setI18nLocale(lang: Language): void {
 function setDayJsLocale(lang: Language): void {
   try {
     dayjs.locale(lang);
-  } catch (error) {
-    console.error(`[dayjs]: Failed to set locale "${lang}"`, error);
+  } catch {
     dayjs.locale('en');
   }
 }
@@ -62,7 +58,6 @@ export async function setLocale(locale: Language): Promise<void> {
     setDayJsLocale(locale);
     localStorage.setItem('language', locale);
   } catch (error) {
-    console.error(`Failed to set locale to ${locale}:`, error);
     throw error;
   }
 }

@@ -1,4 +1,4 @@
-import type { Employee, EmployeeInfo } from '@/types/employees';
+import type { Employee } from '@/types/employees';
 import { employees as employeesData, createEmployee } from '@/core/utils/employeeDataBuilder';
 import { useEmployeeValidation } from '@/core/composables/useEmployeeValidation';
 
