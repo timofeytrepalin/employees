@@ -2,6 +2,8 @@
 
 A modern, type-safe employee management application built with **Vue 3**, **TypeScript**, and **Vite**. Features a responsive UI, internationalization support (EN/FR/RU), and real-time data management with mock API integration.
 
+🔗 **[Live Demo](https://employees-8nq5gkm82-timofeytrepalins-projects.vercel.app/)** - Deployed on Vercel
+
 ## ✨ Features
 
 - 🌍 **Multilingual Support** - English, French, and Russian translations
