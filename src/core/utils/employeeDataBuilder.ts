@@ -154,6 +154,10 @@ function generateEmail(name: string): string {
   return `${selectedPattern}@${domain}`;
 }
 
+function generateEmployeeCode(): string {
+  return `${Math.floor(10000 + Math.random() * 90000)}-${Math.floor(100 + Math.random() * 900)}`;
+}
+
 function generateEmployee(): Employee {
   const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
   const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
@@ -163,7 +167,7 @@ function generateEmployee(): Employee {
   return {
     phone: generateRandomPhone(),
     designation,
-    employeeCode: `${Math.floor(10000 + Math.random() * 90000)}-${Math.floor(100 + Math.random() * 900)}`,
+    employeeCode: generateEmployeeCode(),
     avatar: `https://robohash.org/${Math.random().toString(36).substring(2, 15)}?set=set4&bgset=&size=200x200`,
     name,
     joiningDate: generateRandomDate(new Date(2020, 0, 1), new Date()),
@@ -177,7 +181,7 @@ function generateEmployees(count: number): Employee[] {
 }
 
 export function createEmployee(employeeInfo: EmployeeInfo): Employee {
-  return { id: crypto.randomUUID(), ...employeeInfo };
+  return { id: crypto.randomUUID(), employeeCode: generateEmployeeCode(), ...employeeInfo };
 }
 
 export const employees = generateEmployees(70);

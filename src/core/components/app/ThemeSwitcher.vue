@@ -2,21 +2,23 @@
   <div class="theme-switcher__container">
     <button
       class="theme-switcher__toggle"
-      :class="{ 'theme-switcher__toggle--active': appTheme === 'dark' }"
+      :class="{ 'theme-switcher__toggle_active': appTheme === 'dark' }"
       @click="toggleTheme"
     >
       <span class="theme-switcher__thumb"></span>
     </button>
-    <div>Dark Theme</div>
+    <div>{{ t('switchTheme') }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia';
+import { useI18n } from 'vue-i18n';
 import { useSettings, type Theme } from '@/stores/settings';
 
 const settingsStore = useSettings();
 const { appTheme } = storeToRefs(settingsStore);
+const { t } = useI18n();
 
 const toggleTheme = () => {
   const newTheme: Theme = appTheme.value === 'light' ? 'dark' : 'light';
@@ -55,9 +57,9 @@ const toggleTheme = () => {
     box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
   }
 
-  &--active {
-    background: var(--color-status-success);
-    background-image: radial-gradient(circle at center, var(--color-status-success) 0%, rgba(52, 199, 89, 0.7) 70%);
+  &_active {
+    background: var(--color-base-accent);
+    background-image: radial-gradient(circle at center, var(--color-base-accent) 0%, rgba(225, 103, 255, 0.7) 70%);
   }
 }
 
@@ -71,7 +73,7 @@ const toggleTheme = () => {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   left: 2px;
 
-  .theme-switcher__toggle--active & {
+  .theme-switcher__toggle_active & {
     transform: translateX(20px);
   }
 }

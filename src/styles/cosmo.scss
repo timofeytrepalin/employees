@@ -1,0 +1,181 @@
+.cosmic-diamonds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--cosmic-background-primary);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, var(--cosmic-background-secondary) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, var(--cosmic-background-tertiary) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.crisp-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  .crisp-star {
+    position: absolute;
+    border-radius: 50%;
+    animation: crispSparkle var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+
+    &.size-1 {
+      width: 1px;
+      height: 1px;
+    }
+    
+    &.size-2 {
+      width: 1.2px;
+      height: 1.2px;
+    }
+    
+    &.size-3 {
+      width: 1.5px;
+      height: 1.5px;
+    }
+    
+    &.size-4 {
+      width: 2px;
+      height: 2px;
+    }
+    
+    &.diamond-white {
+      background: var(--star-color-primary);
+      box-shadow: 
+        var(--star-glow-primary),
+        var(--star-glow-secondary);
+    }
+    
+    &.diamond-blue {
+      background: var(--star-color-blue);
+      box-shadow: 
+        var(--star-glow-blue),
+        var(--star-glow-secondary);
+    }
+    
+    &.diamond-purple {
+      background: var(--star-color-purple);
+      box-shadow: 
+        var(--star-glow-purple),
+        var(--star-glow-secondary);
+    }
+    
+    &.diamond-ice {
+      background: var(--star-color-ice);
+      box-shadow: 
+        var(--star-glow-ice),
+        var(--star-glow-secondary);
+    }
+  }
+}
+
+.star-clusters {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  .star-cluster {
+    position: absolute;
+    
+    .cluster-star {
+      position: absolute;
+      background: var(--star-color-primary);
+      border-radius: 50%;
+      animation: clusterSparkle calc(var(--duration) * 1.2) ease-in-out infinite;
+      box-shadow: 
+        var(--star-glow-primary),
+        var(--star-glow-secondary);
+      
+      &.size-s { width: 1px; height: 1px; }
+      &.size-m { width: 1.5px; height: 1.5px; }
+      &.size-l { width: 2px; height: 2px; }
+    }
+    
+    &.cluster-1 {
+      --duration: 4s;
+      top: 25%;
+      left: 20%;
+      
+      .cluster-star:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+      .cluster-star:nth-child(2) { top: 30%; left: 20%; }
+      .cluster-star:nth-child(3) { top: 30%; right: 20%; }
+      .cluster-star:nth-child(4) { bottom: 30%; left: 30%; }
+      .cluster-star:nth-child(5) { bottom: 30%; right: 30%; }
+      .cluster-star:nth-child(6) { bottom: 0; left: 50%; transform: translateX(-50%); }
+    }
+    
+    &.cluster-2 {
+      --duration: 5s;
+      top: 65%;
+      right: 15%;
+      
+      .cluster-star:nth-child(1) { top: 10%; left: 40%; }
+      .cluster-star:nth-child(2) { top: 30%; left: 10%; }
+      .cluster-star:nth-child(3) { top: 30%; right: 10%; }
+      .cluster-star:nth-child(4) { bottom: 30%; left: 25%; }
+      .cluster-star:nth-child(5) { bottom: 30%; right: 25%; }
+      .cluster-star:nth-child(6) { bottom: 10%; left: 40%; }
+    }
+  }
+}
+
+@keyframes crispSparkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  75% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes clusterSparkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.cosmic-diamonds-component {
+  .content-wrapper {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background: transparent;
+  }
+}

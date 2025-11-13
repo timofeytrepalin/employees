@@ -1,10 +1,9 @@
-<!-- src/components/Notification/Notification.vue -->
 <template>
   <transition name="notification">
     <div
       v-if="isVisible"
       class="notification"
-      :class="[`notification--${type}`, { 'notification--closing': isClosing }]"
+      :class="[`notification_${type}`, { notification_closing: isClosing }]"
       @mouseenter="pauseTimeout"
       @mouseleave="resumeTimeout"
     >
@@ -90,61 +89,61 @@ startTimer();
 <style lang="scss" scoped>
 .notification {
   position: fixed;
-  right: var(--basic-spacing); // 16px
-  top: var(--basic-spacing); // 16px
+  right: var(--basic-spacing);
+  top: var(--basic-spacing);
   width: 350px;
-  padding: var(--basic-spacing); // 16px
-  border-radius: var(--border-radius-medium); // 8px
-  box-shadow: var(--shadow-dark); // Мягкая тень
+  padding: var(--basic-spacing);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-dark);
   display: flex;
   align-items: flex-start;
   z-index: 1000;
-  background: var(--color-base-background-secondary); // Тёмный серый фон
-  color: var(--color-base-content-primary); // Белый текст
+  background: var(--color-base-background-secondary);
+  color: var(--color-base-content-primary);
   transform: translateY(0);
   opacity: 1;
-  transition: all var(--transition-ease) 0.3s; // Плавный переход
+  transition: all var(--transition-ease) 0.3s;
 
-  &--success {
-    border-left: 4px solid var(--color-status-success); // Мятная граница
+  &_success {
+    border-left: 4px solid var(--color-status-success);
     .notification__icon svg {
-      color: var(--color-status-success); // Мятная иконка
+      color: var(--color-status-success);
     }
   }
 
-  &--error {
-    border-left: 4px solid var(--color-status-error); // Красная граница
+  &_error {
+    border-left: 4px solid var(--color-status-error);
     .notification__icon svg {
-      color: var(--color-status-error); // Красная иконка
+      color: var(--color-status-error);
     }
   }
 
-  &--warning {
-    border-left: 4px solid var(--color-status-warning); // Жёлтая граница
+  &_warning {
+    border-left: 4px solid var(--color-status-warning);
     .notification__icon svg {
-      color: var(--color-status-warning); // Жёлтая иконка
+      color: var(--color-status-warning);
     }
   }
 
-  &--info {
-    border-left: 4px solid var(--color-base-content-tertiary); // Бледный серый
+  &_info {
+    border-left: 4px solid var(--color-base-content-tertiary);
     .notification__icon svg {
-      color: var(--color-base-content-tertiary); // Бледная иконка
+      color: var(--color-base-content-tertiary);
     }
   }
 
-  &--closing {
-    transform: translateY(var(--basic-spacing)); // 16px
+  &_closing {
+    transform: translateY(var(--basic-spacing));
     opacity: 0;
   }
 
   &__icon {
-    margin-right: var(--basic-spacing-small); // 8px
+    margin-right: var(--basic-spacing-small);
     flex-shrink: 0;
 
     svg {
-      width: var(--size-small); // 24px
-      height: var(--size-small); // 24px
+      width: var(--size-small);
+      height: var(--size-small);
     }
   }
 
@@ -153,26 +152,22 @@ startTimer();
   }
 
   &__title {
-    margin: 0 0 var(--basic-spacing-small) 0; // 8px
-    font-family: var(--font-family-default);
-    font-size: var(--font-size-medium); // 16px
-    font-weight: var(--font-weight-big); // 700
-    line-height: var(--line-height-base); // 1.5
-    letter-spacing: var(--letter-spacing-small); // 0.04em
-    color: var(--color-base-content-primary); // Белый текст
+    margin: 0 0 var(--basic-spacing-small) 0;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-big);
+    line-height: var(--line-height-base);
+    letter-spacing: var(--letter-spacing-small);
+    color: var(--color-base-content-primary);
   }
 
   &__message {
     margin: 0;
-    font-family: var(--font-family-default);
-    font-size: var(--font-size-base); // 14px
-    font-weight: var(--font-weight-base); // 400
-    line-height: var(--line-height-small); // 1.4
-    color: var(--color-base-content-secondary); // Серый текст
+    line-height: var(--line-height-small);
+    color: var(--color-base-content-secondary);
   }
 
   &__close {
-    margin-left: var(--basic-spacing-small); // 8px
+    margin-left: var(--basic-spacing-small);
     background: none;
     border: none;
     cursor: pointer;
@@ -186,9 +181,9 @@ startTimer();
     }
 
     svg {
-      width: var(--size-mini); // 16px
-      height: var(--size-mini); // 16px
-      color: var(--color-base-content-tertiary); // Бледный серый
+      width: var(--size-mini);
+      height: var(--size-mini);
+      color: var(--color-base-content-tertiary);
     }
   }
 }
@@ -196,7 +191,7 @@ startTimer();
 /* Анимации */
 .notification-enter-from,
 .notification-leave-to {
-  transform: translateY(var(--basic-spacing)); // 16px
+  transform: translateY(var(--basic-spacing));
   opacity: 0;
 }
 

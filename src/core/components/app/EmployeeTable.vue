@@ -22,26 +22,23 @@
           :key="person.id"
           class="employee-table__row"
           :class="{
-            'employee-table__row--hover': hoveredRow === index,
-            'employee-table__row--even': index % 2 === 0,
+            'employee-table__row_hover': hoveredRow === index,
+            'employee-table__row_even': index % 2 === 0,
           }"
           @mouseover="hoveredRow = index"
           @mouseleave="hoveredRow = null"
         >
-          <td class="employee-table__cell employee-table__cell--index">{{ person.index + 1 }}</td>
-          <td class="employee-table__cell employee-table__cell--basic-info">
+          <td class="employee-table__cell employee-table__cell_index">{{ person.index + 1 }}</td>
+          <td class="employee-table__cell employee-table__cell_basic-info">
             <div class="employee-table__person-info">
-              <img
-                :src="person.avatar"
-                :alt="`Avatar of ${person.name}`"
-                class="employee-table__avatar"
-                loading="lazy"
-                width="40"
-                height="40"
-              />
+              <object :data="person.avatar" type="image/jpeg" class="employee-table__avatar" width="40" height="40">
+                <div class="employee-table__fallback-avatar">
+                  <div class="employee-table__fallback-shape"></div>
+                </div>
+              </object>
               <div class="employee-table__person-details">
                 <span class="employee-table__person-name">{{ person.name }}</span>
-                <span class="employee-table__person-email">{{ person.email || 'no-email@example.com' }}</span>
+                <span class="employee-table__person-email">{{ person.email || t('noEmail') }}</span>
               </div>
             </div>
           </td>
@@ -53,7 +50,7 @@
             <CustomButton
               @click="onDeleteEmployeeClick(person)"
               class="employee-table__action-button"
-              aria-label="Delete employee"
+              :aria-label="t('deleteEmployee')"
             >
               {{ t('delete') }}
             </CustomButton>
@@ -67,8 +64,15 @@
       :itemsPerPage="itemsPerPage"
       @page-changed="handlePageChange"
     />
-    <ConfirmDialog :is-open="showConfirmDeleteDialog" @confirm="deleteEmployee" @close="deleteEmployeeObject = null">
-      <div v-if="deleteEmployeeObject" class="employee-table__person-info">
+    <ConfirmDialog
+      :is-open="showConfirmDeleteDialog"
+      class="delete-employee-dialog"
+      :title="t('deleteDialog.title')"
+      :confirm-title="t('yes')"
+      @confirm="deleteEmployee"
+      @close="deleteEmployeeObject = null"
+    >
+      <div v-if="deleteEmployeeObject" class="employee-table__person-info delete-employee-dialog__content">
         <img
           :src="deleteEmployeeObject.avatar"
           :alt="`Avatar of ${deleteEmployeeObject.name}`"
@@ -79,7 +83,7 @@
         />
         <div class="employee-table__person-details">
           <span class="employee-table__person-name">{{ deleteEmployeeObject.name }}</span>
-          <span class="employee-table__person-email">{{ deleteEmployeeObject.email || 'no-email@example.com' }}</span>
+          <span class="employee-table__person-email">{{ deleteEmployeeObject.email || t('noEmail') }}</span>
         </div>
       </div>
     </ConfirmDialog>
@@ -120,7 +124,7 @@ const headers = computed<Header[]>(() => [
   {
     title: '#',
     name: 'index',
-    additionalCss: 'employee-table__header-cell--index',
+    additionalCss: 'employee-table__header-cell_index',
     sort: (a: TableEmployee, b: TableEmployee) => (sortDirection.value ? a.index - b.index : b.index - a.index),
   },
   {
@@ -242,8 +246,6 @@ const formatDate = (dateString: string | Date) => {
   color: var(--color-base-content-primary);
 
   &__header {
-    background: var(--color-base-background-utility);
-
     &-cell {
       padding: var(--basic-spacing) var(--basic-spacing-small);
       text-align: left;
@@ -254,13 +256,9 @@ const formatDate = (dateString: string | Date) => {
 
       &.pointer {
         cursor: pointer;
-
-        &:hover {
-          background: var(--color-base-background-quaternary);
-        }
       }
 
-      &--index {
+      &_index {
         width: 5%;
         text-align: center;
       }
@@ -277,14 +275,9 @@ const formatDate = (dateString: string | Date) => {
   }
 
   &__row {
-    background: var(--color-base-background-secondary);
     transition: all var(--transition-ease) 0.5s;
 
-    &--even {
-      background: var(--color-base-background-tertiary);
-    }
-
-    &--hover {
+    &_hover {
       box-shadow: var(--shadow-dark);
       transform: translateY(-2px);
     }
@@ -306,7 +299,7 @@ const formatDate = (dateString: string | Date) => {
       border-bottom-right-radius: var(--border-radius-small);
     }
 
-    &--index {
+    &_index {
       text-align: center;
       color: var(--color-base-content-tertiary);
     }
@@ -330,6 +323,34 @@ const formatDate = (dateString: string | Date) => {
     height: var(--size-medium);
   }
 
+  &__fallback-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &[data-theme='dark'] {
+      background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    &[data-theme='light'] {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__fallback-shape {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    background: whitesmoke;
+  }
+
   &__person-details {
     display: flex;
     flex-direction: column;
@@ -343,6 +364,12 @@ const formatDate = (dateString: string | Date) => {
   &__person-email {
     font-size: var(--font-size-small);
     color: var(--color-base-content-tertiary);
+  }
+}
+
+.delete-employee-dialog {
+  &__content {
+    justify-content: center;
   }
 }
 </style>

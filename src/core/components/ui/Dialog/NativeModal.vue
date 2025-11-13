@@ -7,7 +7,7 @@
             <slot name="header">
               <h3 class="modal__title">{{ title }}</h3>
             </slot>
-            <button class="modal__close" @click="handleClose" aria-label="Закрыть">
+            <button class="modal__close" @click="handleClose" :aria-label="t('close')">
               <svg class="modal__close-icon" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
@@ -31,6 +31,10 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 const props = defineProps({
   isOpen: Boolean,
   title: {
@@ -52,7 +56,7 @@ const handleClose = () => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .modal {
   position: fixed;
   inset: 0;
@@ -60,24 +64,22 @@ const handleClose = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--background-base);
 
   &__overlay {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.062);
     backdrop-filter: var(--background-filter);
     transition: opacity var(--transition-ease) 0.3s;
   }
 
   &__container {
-    // position: relative;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-height: 90vh;
-    background: var(--color-base-background-secondary);
+    background: var(--cosmic-background-primary);
     border: 1px solid var(--color-base-border-primary);
     border-radius: var(--border-radius-medium);
     box-shadow: var(--shadow-dark);
@@ -91,7 +93,6 @@ const handleClose = () => {
     align-items: center;
     padding: var(--basic-spacing);
     border-bottom: 1px solid var(--color-base-border-secondary);
-    background: var(--color-base-background-utility);
   }
 
   &__title {
@@ -134,12 +135,11 @@ const handleClose = () => {
   }
 
   &__footer {
-    padding: var(--basic-spacing); // 16px
+    padding: var(--basic-spacing);
     border-top: 1px solid var(--color-base-border-secondary);
     display: flex;
     justify-content: flex-end;
     gap: var(--basic-spacing-small);
-    background: var(--color-base-background-utility);
   }
 }
 

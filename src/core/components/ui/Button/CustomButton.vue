@@ -1,100 +1,94 @@
 <template>
-  <button class="custom-button" :class="{ 'custom-button--disabled': disabled }" @click="$emit('click')">
-    <span class="custom-button__content">
-      <slot />
-    </span>
+  <button
+    class="custom-button"
+    :class="[{ 'custom-button_disabled': disabled }, `custom-button_${type}`]"
+    @click="$emit('click')"
+    :disabled="disabled"
+  >
+    <slot />
   </button>
 </template>
 
 <script setup lang="ts">
 defineEmits(['click']);
-defineProps<{
-  disabled?: boolean; // Добавлен проп для отключённого состояния
-}>();
+
+withDefaults(
+  defineProps<{
+    disabled?: boolean;
+    type?: 'primary' | 'secondary';
+  }>(),
+  {
+    type: 'primary',
+    disabled: false,
+  }
+);
 </script>
 
-<style lang="scss" scoped>
-button.custom-button {
+<style lang="scss">
+.custom-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--size-medium); // 36px
-  padding: var(--basic-spacing-small) var(--basic-spacing); // 12px 16px
-  // border: 1px solid var(--color-base-border-primary); // Тонкая граница
-  border-radius: var(--border-radius-medium); // 16px
-  background: radial-gradient(
-    circle at center,
-    rgba(0, 0, 0, 0) 90%,
-    var(--color-base-background-utility) 0%
-  ); // Радиальный градиент от утилитарного фона к прозрачному
-  color: var(--color-base-on-primary); // Белый/чёрный текст
+  gap: var(--basic-spacing-small);
+  min-height: var(--size-medium);
+  padding: var(--basic-spacing-small) var(--basic-spacing);
+  border: 1px solid var(--color-base-border-primary);
+  border-radius: var(--border-radius-medium);
+  background: transparent;
+  color: var(--color-base-on-primary);
   font-family: var(--font-family-system);
-  font-size: var(--font-size-medium); // 16px
-  font-weight: var(--font-weight-medium); // 500
-  line-height: var(--line-height-base); // 1.5
-  // transition: all var(--transition-ease) 0.2s; // Плавный переход
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-base);
+  transition: all var(--transition-ease) 0.3s;
   cursor: pointer;
-  outline: none;
-  position: relative; // Для корректного наложения градиента
-  overflow: hidden; // Скроем лишние части градиента
-  box-shadow: var(--shadow-dark);
+  position: relative;
 
   &:hover {
-    background: radial-gradient(
-      circle at center,
-      var(--color-base-background-quaternary) 0%,
-      rgba(0, 0, 0, 0) 70%
-    ); // Более светлый градиент при наведении
-    // border-color: var(--color-base-border-accent);
+    background: var(--color-base-background-quaternary);
+    border-color: var(--color-base-border-accent);
   }
 
-  &:focus {
-    box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.3); // Мятный фокус
+  &:focus-visible {
+    outline: 2px solid var(--color-base-border-accent);
+    outline-offset: 2px;
   }
 
-  &__content {
-    color: inherit;
-    font-family: var(--font-family-default);
-    font-size: var(--font-size-base); // 15px
-    line-height: var(--line-height-base); // 1.5
-    letter-spacing: var(--letter-spacing-small); // -0.02em
-    transition: all var(--transition-ease) 0.4s;
+  &:active {
+    transform: scale(0.98);
   }
 
-  &--primary {
-    background: radial-gradient(
-      circle at center,
-      var(--color-status-success) 0%,
-      rgba(52, 199, 89, 0) 70%
-    ); // Мятный радиальный градиент
-    border-color: var(--color-status-success); // Зелёная граница
-    color: var(--color-base-on-primary);
+  &_primary {
+    background-color: var(--color-base-accent);
+    color: var(--color-base-accent-secondary);
+    border-color: var(--color-base-accent);
 
     &:hover {
-      background: radial-gradient(
-        circle at center,
-        rgba(52, 199, 89, 1) 0%,
-        rgba(9, 255, 144, 0) 70%
-      ); // Более яркий мятный градиент
+      background-color: var(--color-status-background-success);
     }
   }
 
-  &--disabled {
-    opacity: 0.6;
+  &_secondary {
+    &:hover {
+      background: var(--color-status-background-error);
+    }
+  }
+
+  &_disabled,
+  &:disabled {
+    opacity: 0.5;
     cursor: not-allowed;
-    background: radial-gradient(
-      circle at center,
-      var(--color-base-background-placeholder) 0%,
-      rgba(0, 0, 0, 0) 70%
-    ); // Серый градиент для отключённого состояния
-    border-color: var(--color-base-border-secondary);
+
+    &:hover {
+      background: transparent;
+      border-color: var(--color-base-border-primary);
+    }
   }
 
   :deep(svg) {
+    width: var(--size-small);
+    height: var(--size-small);
     color: inherit;
-    width: var(--size-small); // 24px
-    height: var(--size-small); // 24px
-    transition: all var(--transition-ease) 0.4s;
   }
 }
 </style>

@@ -82,11 +82,12 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
 
 <style lang="scss">
 .dashboard {
-  background: var(--color-base-background-primary);
+  background: transparent;
   padding: var(--basic-spacing-medium);
   border-radius: var(--border-radius-medium);
   box-shadow: var(--shadow-dark);
   transition: all var(--transition-ease) 0.3s;
+  border: 1px solid var(--color-base-border-secondary);
 
   &__settings {
     display: flex;
@@ -117,6 +118,8 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
     align-items: center;
     margin-bottom: var(--basic-spacing-small);
     font-size: var(--font-size-small);
+    overflow-x: scroll;
+    width: 100%;
   }
 
   &__tab {
@@ -128,7 +131,7 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
 
     &_active {
       color: var(--color-base-content-primary);
-      border-bottom: 4px solid var(--color-status-success);
+      border-bottom: 4px solid var(--color-base-accent);
     }
 
     &:hover {
@@ -143,7 +146,7 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
   }
 
   &__table {
-    background: var(--color-base-background-secondary);
+    background: transparent;
     border-radius: var(--border-radius-medium);
     padding: var(--basic-spacing);
     border: 1px solid var(--color-base-border-secondary);

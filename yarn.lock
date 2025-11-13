@@ -273,6 +273,18 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
+"@desource/phone-mask-vue@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@desource/phone-mask-vue/-/phone-mask-vue-0.2.1.tgz#b5d4997ac5aaf82ea60c8e21a643cd017872efb0"
+  integrity sha512-3L+QBly1Ba6Lq7mW9xvuTJuGqEY96dyvgAjet7oHzQOJvSlKff2jRj4hVtS/FKKaUBsKFQcoSMWwHCPDad+CAw==
+  dependencies:
+    "@desource/phone-mask" "0.2.1"
+
+"@desource/phone-mask@0.2.1", "@desource/phone-mask@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@desource/phone-mask/-/phone-mask-0.2.1.tgz#e337dfba106be96923c107d6be614a8eee4f438f"
+  integrity sha512-fhrzlEY0zyL/JKxXP1Clq0STI8t7rmc83aexm0CXbaBDHxaRrt6xguS6j/m/SPHZGpJ6QKaLGHMYPzi6TaWySA==
+
 "@edge-runtime/format@2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@edge-runtime/format/-/format-2.2.1.tgz#10dcedb0d7c2063c9ee360fbab23846c8720f986"

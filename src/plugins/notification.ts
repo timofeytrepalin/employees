@@ -1,4 +1,3 @@
-// src/plugins/notifications.ts
 import { h, render } from 'vue';
 import type { App, VNode } from 'vue';
 import Notification from '@/core/components/ui/Notification/Notification.vue';
@@ -29,7 +28,6 @@ export const notificationPlugin = {
   install(app: App): void {
     let notificationContainer: HTMLDivElement | null = null;
 
-    // SSR compatibility
     if (typeof window !== 'undefined') {
       notificationContainer = document.createElement('div');
       notificationContainer.id = 'notification-container';

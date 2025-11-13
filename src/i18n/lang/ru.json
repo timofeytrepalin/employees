@@ -4,6 +4,12 @@
     "confirm": "Подтвердить",
     "delete": "Удалить",
     "theme": "Тема",
+    "switchTheme": "Переключить тему",
+    "yes": "Да",
+    "no": "Нет",
+    "close": "Закрыть",
+    "deleteEmployee": "Удалить сотрудника",
+    "noEmail": "нет емейла",
     "dashboard": {
       "title": "Панель управления",
       "addEmployee": "Добавить сотрудника",
@@ -22,6 +28,9 @@
       "cancel": "Отмена",
       "confirm": "Подтвердить",
       "delete": "Удалить"
+    },
+    "deleteDialog": {
+      "title": "Вы хотите удалить этого сотрудника?"
     },
     "notification": {
       "success": "Успех",
@@ -47,5 +56,13 @@
       "uxdesigner": "UX-дизайнер",
       "devopsspecialist": "DevOps-специалист",
       "qaengineer": "Инженер по тестированию"
+    },
+    "validationMessages": {
+      "phoneError": "Неверный формат телефона",
+      "dateError": "Неверная дата",
+      "emailError": "Неверный формат электронной почты",
+      "nameError": "Имя обязательно",
+      "designationError": "Должность обязательна",
+      "fieldRequired": "Это поле обязательно для заполнения"
     }
   }

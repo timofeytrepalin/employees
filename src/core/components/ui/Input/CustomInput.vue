@@ -2,7 +2,7 @@
   <div class="input-wrapper">
     <input
       class="custom-input"
-      :class="{ 'custom-input--error': errorMessage }"
+      :class="{ 'custom-input_error': errorMessage }"
       :type="type"
       :value="modelValue"
       :placeholder="placeholder"
@@ -13,6 +13,7 @@
       :lang
       @input="handleInput"
       @blur="validateInput"
+      @change="(e) => emit('change:modelValue', e)"
     />
     <div v-if="errorMessage" class="input-error">
       {{ errorMessage }}
@@ -22,6 +23,7 @@
 
 <script setup lang="ts">
 import { Language } from '@/i18n/consts';
+import { useI18n } from 'vue-i18n';
 import { ref, watch } from 'vue';
 
 interface Props {
@@ -50,15 +52,17 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void;
+  (e: 'change:modelValue', value: any): void;
   (e: 'validation', isValid: boolean): void;
 }>();
 
+const { t } = useI18n();
 const errorMessage = ref('');
 const isTouched = ref(false);
 
 const validate = (value: string) => {
   if (props.required && !value.trim()) {
-    errorMessage.value = 'Это поле обязательно для заполнения';
+    errorMessage.value = t('validationMessages.fieldRequired');
     return false;
   }
 
@@ -87,7 +91,6 @@ const validateInput = () => {
   emit('validation', isValid);
 };
 
-// Валидация при изменении required
 watch(
   () => props.required,
   () => {
@@ -98,52 +101,49 @@ watch(
 );
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .input-wrapper {
-  margin-bottom: var(--basic-spacing); // 16px
+  margin-bottom: var(--basic-spacing);
+  position: relative;
 }
 
 .custom-input {
-  padding: var(--basic-spacing-small); // 8px
-  font-family: var(--font-family-default);
-  font-size: var(--font-size-base); // 14px
-  font-weight: var(--font-weight-base); // 400
-  line-height: var(--line-height-base); // 1.5
-  letter-spacing: var(--letter-spacing-small); // 0.04em
-  border: 2px solid var(--color-base-border-primary); // Тонкая белая граница (прозрачность 0.12)
-  border-radius: var(--border-radius); // 4px
-  background: var(--color-base-background-tertiary); // Тёмный серый фон
-  color: var(--color-base-content-primary); // Белый текст
-  max-height: var(--size-medium); // 32px
+  padding: var(--basic-spacing-small);
+  border: 1px solid var(--color-base-border-primary);
+  border-radius: var(--border-radius-mini);
+  background: transparent;
+  color: var(--color-base-content-primary);
+  max-height: var(--size-medium);
   outline: none;
   max-width: 100%;
-  transition: all var(--transition-ease) 0.3s; // Плавный переход
+  transition: all var(--transition-ease) 0.3s;
+  width: 100%;
 
   &:focus {
-    border-color: var(--color-status-success); // Мятная граница
-    background: var(--color-base-background-secondary); // Более светлый фон
-    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2); // Мятный ореол
+    border-color: var(--color-base-accent);
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
   }
 
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    background: var(--color-base-background-placeholder); // Серый фон
-    border-color: var(--color-base-border-secondary); // Бледная граница
+    background: var(--color-base-background-placeholder);
+    border-color: var(--color-base-border-secondary);
   }
 
-  &--error {
-    border-color: var(--color-status-error); // Красная граница
-    background: rgba(229, 57, 53, 0.1); // Лёгкий красный фон
+  &_error {
+    border-color: var(--color-status-error);
   }
 }
 
 .input-error {
-  color: var(--color-status-error); // Красный текст
-  font-family: var(--font-family-default);
-  font-size: var(--font-size-small); // 12px
-  font-weight: var(--font-weight-base); // 400
-  line-height: var(--line-height-small); // 1.4
-  margin-top: var(--basic-spacing-small); // 8px
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(0, 100%);
+  color: var(--color-status-error);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  margin-top: var(--basic-spacing-small);
 }
 </style>

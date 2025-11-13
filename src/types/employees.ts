@@ -9,7 +9,7 @@ export interface Employee {
   id: string;
 }
 
-export type EmployeeInfo = Omit<Employee, 'id'>;
+export type EmployeeInfo = Omit<Employee, 'id' | 'employeeCode'>;
 
 export type FieldKeys<T> = keyof T;
 export type EmployeeFields = FieldKeys<Employee>;

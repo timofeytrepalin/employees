@@ -1,3 +1,4 @@
+$basic-spacing-mini: 4px;
 $basic-spacing: 8px;
 $basic-spacing-small: 12px;
 $basic-spacing-medium: 16px;
@@ -9,6 +10,7 @@ $size-small: 24px;
 $size-medium: 36px;
 $size-large: 52px;
 
+$border-radius-mini: $basic-spacing-mini; // 8px
 $border-radius: $basic-spacing; // 8px
 $border-radius-small: $basic-spacing * 1.5; // 12px
 $border-radius-medium: $basic-spacing * 2; // 16px
@@ -41,75 +43,139 @@ $letter-spacing-big: 0.02em;
 $letter-spacing-huge: 0.2em;
 
 $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
-
 [data-theme='dark'] {
-  --color-base-content-primary: rgba(255, 255, 255, 0.87);
-  --color-base-content-secondary: rgba(255, 255, 255, 0.6);
-  --color-base-content-tertiary: rgba(255, 255, 255, 0.38);
-  --color-base-on-primary: rgba(255, 255, 255, 0.87);
+  --color-base-content-primary: rgba(255, 255, 255, 0.95);
+  --color-base-content-secondary: rgba(255, 255, 255, 0.7);
+  --color-base-content-tertiary: rgba(255, 255, 255, 0.5);
+  --color-base-on-primary: rgba(255, 255, 255, 0.95);
 
-  --color-status-success: #34c759;
+  --color-base-accent: rgb(130, 36, 253);
+  --color-base-accent-secondary: rgb(240, 240, 240);
+
+  // Акценты в оттенках серого
+  --color-status-success: rgb(25, 207, 19);
   --color-status-background-success: linear-gradient(
     98.19deg,
-    rgba(52, 199, 89, 0.8) -4.08%,
-    rgba(9, 255, 144, 0.8) 309.87%
+    rgba(255, 255, 255, 0.1) -4.08%,
+    rgba(255, 255, 255, 0.05) 309.87%
   );
-  --color-status-warning: #ffca28;
-  --color-status-error: #e53935;
-  --color-status-error-dark: #c62828;
+  --color-status-warning: rgb(218, 214, 34);
+  --color-status-error: rgba(255, 23, 23, 0.6);
+  --color-status-error-dark: rgba(163, 1, 1, 0.4);
 
-  --color-base-background-primary: #121212;
-  --color-base-background-secondary: rgba(50, 50, 50, 0.9);
-  --color-base-background-tertiary: rgba(60, 60, 60, 0.7);
-  --color-base-background-quaternary: rgba(80, 80, 80, 0.5);
-  --color-base-background-utility: #2d2d2d;
-  --color-base-background-placeholder: rgba(120, 120, 120, 0.6);
+  // Глубокие чёрные фоны с стеклянным эффектом
+  --color-base-background-primary: rgba(10, 10, 10, 0.95);
+  --color-base-background-secondary: rgba(15, 15, 15, 0.8);
+  --color-base-background-tertiary: rgba(20, 20, 20, 0.6);
+  --color-base-background-quaternary: rgba(25, 25, 25, 0.4);
+  --color-base-background-utility: rgba(18, 18, 18, 0.9);
+  --color-base-background-placeholder: rgba(30, 30, 30, 0.5);
 
-  --color-base-border-primary: rgba(255, 255, 255, 0.12);
-  --color-base-border-secondary: rgba(255, 255, 255, 0.08);
-  --color-base-border-accent: rgba(120, 120, 120, 0.5);
+  // Границы в оттенках серого
+  --color-base-border-primary: rgba(255, 255, 255, 0.315);
+  --color-base-border-secondary: rgba(92, 92, 92, 0.616);
+  --color-base-border-accent: rgba(255, 255, 255, 0.432);
 
+  // Стеклянные тени
   --shadow-dark: 0px 4px 20px rgba(0, 0, 0, 0.5);
   --shadow-dark-elevated: 0px 8px 32px rgba(0, 0, 0, 0.7);
 
-  --background-base: linear-gradient(180deg, #121212 0%, rgba(50, 50, 50, 0.9) 100%);
-  --background-base-linear: linear-gradient(90deg, rgba(30, 30, 30, 0.8) 0%, rgba(70, 70, 70, 0.7) 100%);
-  --background-filter: blur(20px);
+  // Стеклянные градиенты
+  --background-base: linear-gradient(
+    135deg, 
+    rgba(8, 8, 8, 0.98) 0%, 
+    rgba(12, 12, 12, 0.95) 50%,
+    rgba(8, 8, 8, 0.98) 100%
+  );
+  --background-base-linear: linear-gradient(
+    90deg, 
+    rgba(12, 12, 12, 0.9) 0%, 
+    rgba(18, 18, 18, 0.7) 50%,
+    rgba(12, 12, 12, 0.9) 100%
+  );
+  --background-filter: blur(20px) saturate(180%);
+
+// COSMO theme
+   --cosmic-background-primary: #000000;
+  --cosmic-background-secondary: rgba(10, 10, 20, 0.3);
+  --cosmic-background-tertiary: rgba(8, 8, 16, 0.2);
+  --star-color-primary: #ffffff;
+  --star-color-blue: #e6f7ff;
+  --star-color-purple: #f3e5f5;
+  --star-color-ice: #e3f2fd;  
+  --star-glow-primary: 0 0 1px 0.5px rgba(255, 255, 255, 0.8);
+  --star-glow-secondary: 0 0 2px 1px rgba(255, 255, 255, 0.3);
+  --star-glow-blue: 0 0 1px 0.5px #b3e0ff;
+  --star-glow-purple: 0 0 1px 0.5px #e1bee7;
+  --star-glow-ice: 0 0 1px 0.5px #bbdefb;
 }
 
 [data-theme='light'] {
-  --color-base-content-primary: rgba(33, 33, 33, 0.87);
-  --color-base-content-secondary: rgba(66, 66, 66, 0.6);
-  --color-base-content-tertiary: rgba(99, 99, 99, 0.38);
-  --color-base-on-primary: rgba(7, 7, 7, 0.719);
+  --color-base-content-primary: rgba(0, 0, 0, 0.95);
+  --color-base-content-secondary: rgba(0, 0, 0, 0.7);
+  --color-base-content-tertiary: rgba(0, 0, 0, 0.5);
+  --color-base-on-primary: rgba(0, 0, 0, 0.9);
 
-  --color-status-success: #34c759;
+   --color-base-accent: rgb(130, 36, 253);
+  --color-base-accent-secondary: rgb(240, 240, 240);
+
+  // Светлые акценты в оттенках серого
+  --color-status-success: rgba(0, 0, 0, 0.8);
   --color-status-background-success: linear-gradient(
     98.19deg,
-    rgba(52, 199, 89, 0.8) -4.08%,
-    rgba(9, 255, 144, 0.8) 309.87%
+    rgba(0, 0, 0, 0.08) -4.08%,
+    rgba(0, 0, 0, 0.04) 309.87%
   );
-  --color-status-warning: #ffca28;
-  --color-status-error: #e53935;
-  --color-status-error-dark: #c62828;
+  --color-status-warning: rgb(218, 214, 34);
+  --color-status-error: rgba(255, 23, 23, 0.6);
+  --color-status-error-dark: rgba(163, 1, 1, 0.4);
 
-  --color-base-background-primary: #f5f6f5;
-  --color-base-background-secondary: #ffffff;
-  --color-base-background-tertiary: rgba(240, 242, 240, 0.9);
-  --color-base-background-quaternary: rgba(230, 232, 230, 0.7);
-  --color-base-background-utility: #e8ece8;
-  --color-base-background-placeholder: rgba(200, 202, 200, 0.6);
+  // Светлые стеклянные фоны
+  --color-base-background-primary: rgba(250, 250, 250, 0.95);
+  --color-base-background-secondary: rgba(245, 245, 245, 0.8);
+  --color-base-background-tertiary: rgba(240, 240, 240, 0.6);
+  --color-base-background-quaternary: rgba(235, 235, 235, 0.4);
+  --color-base-background-utility: rgba(248, 248, 248, 0.9);
+  --color-base-background-placeholder: rgba(230, 230, 230, 0.5);
 
-  --color-base-border-primary: rgba(66, 66, 66, 0.12);
-  --color-base-border-secondary: rgba(66, 66, 66, 0.08);
-  --color-base-border-accent: rgba(150, 152, 150, 0.5);
+  // Светлые границы
+  --color-base-border-primary: rgba(0, 0, 0, 0.15);
+  --color-base-border-secondary: rgba(92, 92, 92, 0.452);
+  --color-base-border-accent: rgba(0, 0, 0, 0.25);
 
+  // Светлые стеклянные тени
   --shadow-dark: 0px 4px 20px rgba(0, 0, 0, 0.1);
   --shadow-dark-elevated: 0px 8px 32px rgba(0, 0, 0, 0.15);
 
-  --background-base: linear-gradient(180deg, #f5f6f5 0%, #e8ece8 100%);
-  --background-base-linear: linear-gradient(90deg, rgba(240, 242, 240, 0.9) 0%, rgba(230, 232, 230, 0.7) 100%);
-  --background-filter: blur(10px);
+  // Светлые стеклянные градиенты
+  --background-base: linear-gradient(
+    135deg,
+    rgba(252, 252, 252, 0.98) 0%,
+    rgba(248, 248, 248, 0.95) 50%,
+    rgba(252, 252, 252, 0.98) 100%
+  );
+  --background-base-linear: linear-gradient(
+    90deg,
+    rgba(248, 248, 248, 0.9) 0%,
+    rgba(242, 242, 242, 0.7) 50%,
+    rgba(248, 248, 248, 0.9) 100%
+  );
+  --background-filter: blur(15px) saturate(160%);
+
+  // COSMO theme
+  --cosmic-background-primary: #e6f0ff;
+  --cosmic-background-secondary: rgba(100, 150, 255, 0.4);
+  --cosmic-background-tertiary: rgba(80, 120, 255, 0.3);
+  
+  --star-color-primary: #1a365d;
+  --star-color-blue: #0066ff;
+  --star-color-purple: #8b5cf6;
+  --star-color-ice: #0066cc;
+  --star-glow-primary: 0 0 1px 0.5px rgba(45, 55, 72, 0.6);
+  --star-glow-secondary: 0 0 2px 1px rgba(45, 55, 72, 0.3);
+  --star-glow-blue: 0 0 1px 0.5px #3182ce;
+  --star-glow-purple: 0 0 1px 0.5px #805ad5;
+  --star-glow-ice: 0 0 1px 0.5px #4a5568;
 }
 
 :root {
@@ -125,6 +191,7 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --size-large: #{$size-large};
 
   --border-radius: #{$border-radius};
+  --border-radius-mini: #{$border-radius-mini};
   --border-radius-small: #{$border-radius-small};
   --border-radius-medium: #{$border-radius-medium};
 

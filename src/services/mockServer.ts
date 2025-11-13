@@ -15,8 +15,9 @@ export const mockServer = {
     };
   },
 
-  async addEmployee(employeeInfo: EmployeeInfo) {
+  async addEmployee(data: string) {
     await delay(300);
+    const employeeInfo = JSON.parse(data);
     const isDataValild = useEmployeeValidation().validateEmployee(employeeInfo);
     if (!isDataValild)
       return {

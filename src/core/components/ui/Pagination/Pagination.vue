@@ -6,7 +6,7 @@
       v-for="page in visiblePages"
       :key="page"
       class="pagination__button"
-      :class="{ 'pagination__button--active': page === currentPage }"
+      :class="{ pagination__button_active: page === currentPage }"
       @click="changePage(page)"
     >
       {{ page }}
@@ -70,44 +70,41 @@ const changePage = (page: number) => {
 <style lang="scss">
 .pagination {
   display: flex;
-  gap: var(--basic-spacing-small); // 8px
+  gap: var(--basic-spacing-small);
   justify-content: center;
-  margin-top: var(--basic-spacing); // 16px
+  margin-top: var(--basic-spacing);
 }
 
 .pagination__button {
-  width: var(--size-medium); // 32px
-  height: var(--size-medium); // 32px
-  border: 1px solid var(--color-base-border-primary); // Тонкая белая граница (прозрачность 0.12)
-  border-radius: var(--border-radius); // 4px
-  background: var(--color-base-background-tertiary); // Тёмный серый фон
-  color: var(--color-base-content-primary); // Белый текст
-  font-family: var(--font-family-default);
-  font-size: var(--font-size-base); // 14px
-  font-weight: var(--font-weight-medium); // 500
-  line-height: var(--line-height-reset); // 1
+  width: var(--size-medium);
+  height: var(--size-medium);
+  border: 1px solid var(--color-base-border-primary);
+  border-radius: var(--border-radius);
+  background: var(--color-base-background-tertiary);
+  color: var(--color-base-content-primary);
   cursor: pointer;
-  transition: all var(--transition-ease) 0.2s; // Плавный переход
+  transition: all var(--transition-ease) 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover:not(:disabled) {
-    background: var(--color-base-background-quaternary); // Более светлый фон
-    border-color: var(--color-base-border-accent); // Акцентная граница
+    background: var(--color-base-background-quaternary);
+    border-color: var(--color-base-border-accent);
+    color: var(--color-base-content-primary);
   }
 
-  &--active {
-    background: var(--color-status-success); // Мятный зелёный
-    color: var(--color-base-on-primary); // Белый текст
-    border-color: var(--color-status-success); // Мятная граница
+  &_active {
+    background: var(--color-base-accent);
+    color: var(--color-base-accent-secondary);
+    border-color: var(--color-base-accent);
   }
 
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    background: var(--color-base-background-placeholder); // Серый фон
-    border-color: var(--color-base-border-secondary); // Бледная граница
+    background: var(--color-base-background-placeholder);
+    border-color: var(--color-base-border-secondary);
   }
 }
 </style>

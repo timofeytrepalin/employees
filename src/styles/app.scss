@@ -40,8 +40,8 @@ button {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100dvh;
-  background-color: var(--color-base-background-utility);
+  // height: 100dvh;
+  // background-color: var(--color-base-background-utility);
 }
 
 .flex-col {
@@ -131,4 +131,6 @@ button {
       transform: rotate(360deg);
     }
   }
+  
 }
+

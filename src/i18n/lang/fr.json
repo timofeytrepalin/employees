@@ -4,6 +4,12 @@
     "confirm": "Confirmer",
     "delete": "Supprimer",
     "theme": "Thème",
+    "switchTheme": "Changer de thème",
+    "yes": "Oui",
+    "no": "Non",
+    "close": "Fermer",
+    "deleteEmployee": "Supprimer l'employé",
+    "noEmail": "pas email",
     "dashboard": {
       "title": "Tableau de bord",
       "addEmployee": "Ajouter un employé",
@@ -22,6 +28,9 @@
       "cancel": "Annuler",
       "confirm": "Confirmer",
       "delete": "Supprimer"
+    },
+    "deleteDialog": {
+      "title": "Êtes-vous sûr de vouloir supprimer cet employé ?"
     },
     "notification": {
       "success": "Succès",
@@ -47,5 +56,13 @@
       "uxdesigner": "Designer UX",
       "devopsspecialist": "Spécialiste DevOps",
       "qaengineer": "Ingénieur QA"
+    },
+    "validationMessages": {
+      "phoneError": "Format de téléphone invalide",
+      "dateError": "Date invalide",
+      "emailError": "Format d'email invalide",
+      "nameError": "Le nom est obligatoire",
+      "designationError": "Le poste est obligatoire",
+      "fieldRequired": "Ce champ est obligatoire"
     }
   }
