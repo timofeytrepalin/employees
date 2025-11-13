@@ -3,37 +3,54 @@
     <table v-loading="isLoading" class="employee-table">
       <thead class="employee-table__header" @click="onHeaderClick">
         <tr>
-          <th v-for="(header, idx) in headers" :key="idx" scope="col" :data-sort-name="header.name"
-              :sort-dir="sortDirection" class="employee-table__header-cell"
-              :class="[header.additionalCss, { 'pointer': header.sort }]"
-          >{{ header.title }}</th>
+          <th
+            v-for="(header, idx) in headers"
+            :key="idx"
+            scope="col"
+            :data-sort-name="header.name"
+            :sort-dir="sortDirection"
+            class="employee-table__header-cell"
+            :class="[header.additionalCss, { pointer: header.sort }]"
+          >
+            {{ header.title }}
+          </th>
         </tr>
       </thead>
       <tbody class="employee-table__body">
-        <tr v-for="(person, index) in filteredData" :key="person.id" class="employee-table__row" :class="{
-          'employee-table__row--hover': hoveredRow === index,
-          'employee-table__row--even': index % 2 === 0
-        }" @mouseover="hoveredRow = index" @mouseleave="hoveredRow = null"
+        <tr
+          v-for="(person, index) in filteredData"
+          :key="person.id"
+          class="employee-table__row"
+          :class="{
+            'employee-table__row_hover': hoveredRow === index,
+            'employee-table__row_even': index % 2 === 0,
+          }"
+          @mouseover="hoveredRow = index"
+          @mouseleave="hoveredRow = null"
         >
-          <td class="employee-table__cell employee-table__cell--index">{{ person.index + 1 }}</td>
-          <td class="employee-table__cell employee-table__cell--basic-info">
+          <td class="employee-table__cell employee-table__cell_index">{{ person.index + 1 }}</td>
+          <td class="employee-table__cell employee-table__cell_basic-info">
             <div class="employee-table__person-info">
-              <img :src="person.avatar" :alt="`Avatar of ${person.name}`" class="employee-table__avatar" loading="lazy"
-                   width="40" height="40"
-              />
+              <object :data="person.avatar" type="image/jpeg" class="employee-table__avatar" width="40" height="40">
+                <div class="employee-table__fallback-avatar">
+                  <div class="employee-table__fallback-shape"></div>
+                </div>
+              </object>
               <div class="employee-table__person-details">
                 <span class="employee-table__person-name">{{ person.name }}</span>
-                <span class="employee-table__person-email">{{ person.email || 'no-email@example.com' }}</span>
+                <span class="employee-table__person-email">{{ person.email || t('noEmail') }}</span>
               </div>
             </div>
           </td>
           <td class="employee-table__cell">{{ person.employeeCode }}</td>
-          <td class="employee-table__cell">{{ person.designation }}</td>
+          <td class="employee-table__cell">{{ t(`designations.${person.designation}`) }}</td>
           <td class="employee-table__cell">{{ person.phone }}</td>
           <td class="employee-table__cell">{{ formatDate(person.joiningDate) }}</td>
           <td class="employee-table__cell employee-table__cell--actions">
-            <CustomButton @click="onDeleteEmployeeClick(person)" class="employee-table__action-button"
-                          aria-label="Delete employee"
+            <CustomButton
+              @click="onDeleteEmployeeClick(person)"
+              class="employee-table__action-button"
+              :aria-label="t('deleteEmployee')"
             >
               {{ t('delete') }}
             </CustomButton>
@@ -41,17 +58,32 @@
         </tr>
       </tbody>
     </table>
-    <Pagination :current-page="currentPage" :total-items="employees.length" :itemsPerPage="itemsPerPage"
-                @page-changed="handlePageChange"
+    <Pagination
+      :current-page="currentPage"
+      :total-items="employees.length"
+      :itemsPerPage="itemsPerPage"
+      @page-changed="handlePageChange"
     />
-    <ConfirmDialog :is-open="showConfirmDeleteDialog" @confirm="deleteEmployee" @close="deleteEmployeeObject = null">
-      <div v-if="deleteEmployeeObject" class="employee-table__person-info">
-        <img :src="deleteEmployeeObject.avatar" :alt="`Avatar of ${deleteEmployeeObject.name}`"
-             class="employee-table__avatar" loading="lazy" width="40" height="40"
+    <ConfirmDialog
+      :is-open="showConfirmDeleteDialog"
+      class="delete-employee-dialog"
+      :title="t('deleteDialog.title')"
+      :confirm-title="t('yes')"
+      @confirm="deleteEmployee"
+      @close="deleteEmployeeObject = null"
+    >
+      <div v-if="deleteEmployeeObject" class="employee-table__person-info delete-employee-dialog__content">
+        <img
+          :src="deleteEmployeeObject.avatar"
+          :alt="`Avatar of ${deleteEmployeeObject.name}`"
+          class="employee-table__avatar"
+          loading="lazy"
+          width="40"
+          height="40"
         />
         <div class="employee-table__person-details">
           <span class="employee-table__person-name">{{ deleteEmployeeObject.name }}</span>
-          <span class="employee-table__person-email">{{ deleteEmployeeObject.email || 'no-email@example.com' }}</span>
+          <span class="employee-table__person-email">{{ deleteEmployeeObject.email || t('noEmail') }}</span>
         </div>
       </div>
     </ConfirmDialog>
@@ -66,12 +98,12 @@ import CustomButton from '@/core/components/ui/Button/CustomButton.vue';
 import type { Employee, EmployeeFields } from '@/types/employees';
 import ConfirmDialog from './ConfirmDialog.vue';
 import { useI18n } from 'vue-i18n';
-import dayjs from 'dayjs/esm';
+import dayjs from 'dayjs';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 interface TableEmployee extends Employee {
-  index: number
+  index: number;
 }
 
 interface Header {
@@ -84,90 +116,91 @@ interface Header {
 const props = defineProps({
   employees: {
     type: Array<Employee>,
-    default: () => []
-  }
+    default: () => [],
+  },
 });
-
 
 const headers = computed<Header[]>(() => [
   {
     title: '#',
     name: 'index',
-    additionalCss: 'employee-table__header-cell--index',
-    sort: (a: TableEmployee, b: TableEmployee) => (sortDirection.value ? a.index - b.index : b.index - a.index)
+    additionalCss: 'employee-table__header-cell_index',
+    sort: (a: TableEmployee, b: TableEmployee) => (sortDirection.value ? a.index - b.index : b.index - a.index),
   },
   {
     title: t('employeeTable.basicInfo'),
     name: 'name' as EmployeeFields,
     additionalCss: 'employee-table__header-cell--info',
-    sort: stringSort('name')
+    sort: stringSort('name'),
   },
   {
     title: t('employeeTable.employeeCode'),
     name: 'employeeCode' as EmployeeFields,
     additionalCss: '',
-    sort: stringSort('employeeCode')
+    sort: stringSort('employeeCode'),
   },
   {
     title: t('employeeTable.designation'),
     name: 'designation' as EmployeeFields,
     additionalCss: '',
-    sort: stringSort('designation')
+    sort: stringSort('designation'),
   },
   {
     title: t('employeeTable.phoneNumber'),
     name: 'phone' as EmployeeFields,
-    additionalCss: ''
+    additionalCss: '',
   },
   {
     title: t('employeeTable.joiningDate'),
     name: 'joiningDate' as EmployeeFields,
-    additionalCss: ''
+    additionalCss: '',
   },
   {
     title: t('employeeTable.action'),
     name: 'action',
-    additionalCss: 'employee-table__header-cell--actions'
+    additionalCss: 'employee-table__header-cell--actions',
   },
-])
+]);
 
 const stringSort = (property: EmployeeFields) => (a: TableEmployee, b: TableEmployee) => {
   if (typeof a[property] !== 'string' || typeof b[property] !== 'string') {
-      return 0;
-    }
-      const desA = a[property].toLowerCase();
-      const desB = b[property].toLowerCase();
+    return 0;
+  }
+  const desA = a[property].toLowerCase();
+  const desB = b[property].toLowerCase();
 
-      if (sortDirection.value) {
-        return desA.localeCompare(desB);
-      } else {
-        return desB.localeCompare(desA);
-      }
-    }
+  if (sortDirection.value) {
+    return desA.localeCompare(desB);
+  } else {
+    return desB.localeCompare(desA);
+  }
+};
 
 defineEmits(['delete']);
 
 const employeesStore = useEmployees();
 
-const isLoading = computed(() => employeesStore.isLoading)
+const isLoading = computed(() => employeesStore.isLoading);
 
-const hoveredRow = ref<number|null>(null);
-
+const hoveredRow = ref<number | null>(null);
 
 const filteredData = computed(() => {
   const paginatedStart = itemsPerPage * (currentPage.value - 1);
-  return props.employees.map((person, index) => ({ index, ...person })).sort(sortFunction.value).slice(paginatedStart, paginatedStart + itemsPerPage);
+  return props.employees
+    .map((person, index) => ({ index, ...person }))
+    .sort(sortFunction.value)
+    .slice(paginatedStart, paginatedStart + itemsPerPage);
 });
 
 const currentPage = ref(1);
 const itemsPerPage = 10;
 const sortDirection = ref(true);
-const currentSort = ref(headers.value[0])
-const sortFunction = computed(() => currentSort.value.sort)
+const currentSort = ref(headers.value[0]);
+const sortFunction = computed(() => currentSort.value.sort);
 
 function onHeaderClick(event: Event) {
   const target = event.target as HTMLElement;
-  const header = headers.value.find(header => header.name === target.dataset.sortName);
+  const header = headers.value.find((header) => header.name === target.dataset.sortName);
   if (!header || !header.sort) return;
   if (currentSort.value.name === header.name) sortDirection.value = !sortDirection.value;
   currentSort.value = header;
@@ -177,12 +210,11 @@ const handlePageChange = (page: number) => {
   currentPage.value = page;
 };
 
+const deleteEmployeeId = computed(() => deleteEmployeeObject?.value?.id ?? '');
 
-const deleteEmployeeId = computed(() => (deleteEmployeeObject?.value?.id ?? ''));
+const showConfirmDeleteDialog = computed(() => !!deleteEmployeeId.value);
 
-const showConfirmDeleteDialog = computed(() => (!!deleteEmployeeId.value))
-
-const deleteEmployeeObject = ref<Employee | null>(null)
+const deleteEmployeeObject = ref<Employee | null>(null);
 
 const onDeleteEmployeeClick = (employee: Employee) => {
   deleteEmployeeObject.value = employee;
@@ -194,8 +226,7 @@ const deleteEmployee = () => {
 };
 
 const formatDate = (dateString: string | Date) => {
-  const date = dayjs(dateString);
-  return date.format('LL')
+  return dayjs(dateString).format('DD MMM YYYY');
 };
 </script>
 
@@ -207,6 +238,7 @@ const formatDate = (dateString: string | Date) => {
 
 .employee-table {
   width: 100%;
+  min-height: 400px;
   border-collapse: separate;
   border-spacing: 0 var(--basic-spacing-small);
   font-family: var(--font-family-default);
@@ -214,8 +246,6 @@ const formatDate = (dateString: string | Date) => {
   color: var(--color-base-content-primary);
 
   &__header {
-    background: var(--color-base-background-utility);
-
     &-cell {
       padding: var(--basic-spacing) var(--basic-spacing-small);
       text-align: left;
@@ -226,13 +256,9 @@ const formatDate = (dateString: string | Date) => {
 
       &.pointer {
         cursor: pointer;
-
-        &:hover {
-          background: var(--color-base-background-quaternary);
-        }
       }
 
-      &--index {
+      &_index {
         width: 5%;
         text-align: center;
       }
@@ -249,14 +275,9 @@ const formatDate = (dateString: string | Date) => {
   }
 
   &__row {
-    background: var(--color-base-background-secondary);
     transition: all var(--transition-ease) 0.5s;
 
-    &--even {
-      background: var(--color-base-background-tertiary);
-    }
-
-    &--hover {
+    &_hover {
       box-shadow: var(--shadow-dark);
       transform: translateY(-2px);
     }
@@ -278,7 +299,7 @@ const formatDate = (dateString: string | Date) => {
       border-bottom-right-radius: var(--border-radius-small);
     }
 
-    &--index {
+    &_index {
       text-align: center;
       color: var(--color-base-content-tertiary);
     }
@@ -302,6 +323,34 @@ const formatDate = (dateString: string | Date) => {
     height: var(--size-medium);
   }
 
+  &__fallback-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &[data-theme='dark'] {
+      background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    &[data-theme='light'] {
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__fallback-shape {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    background: whitesmoke;
+  }
+
   &__person-details {
     display: flex;
     flex-direction: column;
@@ -315,6 +364,12 @@ const formatDate = (dateString: string | Date) => {
   &__person-email {
     font-size: var(--font-size-small);
     color: var(--color-base-content-tertiary);
+  }
+}
+
+.delete-employee-dialog {
+  &__content {
+    justify-content: center;
   }
 }
 </style>

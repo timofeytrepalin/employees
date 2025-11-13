@@ -2,17 +2,17 @@
 import AddPersonDialog from '@/core/components/app/AddPersonDialog.vue';
 import EmployeeTable from '@/core/components/app/EmployeeTable.vue';
 import CustomButton from '@/core/components/ui/Button/CustomButton.vue';
-import { ref, onMounted, shallowRef,  computed } from 'vue';
+import { ref, onMounted, shallowRef, computed } from 'vue';
 import { useEmployees } from '@/stores/employees';
 import type { EmployeeInfo } from '@/types/employees';
 import { storeToRefs } from 'pinia';
-import { useI18n } from 'vue-i18n'
+import { useI18n } from 'vue-i18n';
 import LanguageSwitcher from '@/core/components/app/LanguageSwitcher.vue';
 import ThemeSwitcher from '@/core/components/app/ThemeSwitcher.vue';
 
 interface Tab {
-  filterName: string,
-  title: string
+  filterName: string;
+  title: string;
 }
 
 const { t } = useI18n();
@@ -24,40 +24,46 @@ onMounted(() => {
   employeesStore.loadEmployees();
 });
 
+const toggleIsAddPersonDialogOpen = () => {
+  isAddPersonDialogOpen.value = !isAddPersonDialogOpen.value;
+};
 
 const filteredEmployees = computed(() => {
   if (!selectedTab.value.filterName) return employeesStore.employees;
-  return employeesStore.employees.filter(employee => employee.designation.toLowerCase() === selectedTab.value.filterName);
+  return employeesStore.employees.filter(
+    (employee) => employee.designation.toLowerCase() === selectedTab.value.filterName
+  );
 });
 
 const setFilterType = (type: Tab) => {
   selectedTab.value = type;
 };
 
-
-const tabs = computed(() => ([
-  { filterName: '', title: 'All Employees' },
-  ...designations.value.map(item => ({
+const tabs = computed(() => [
+  { filterName: '', title: t(`designations.all`) },
+  ...designations.value.map((item) => ({
     filterName: item.toLowerCase(),
-    title: item
-  }))
-]));
+    title: t(`designations.${item}`),
+  })),
+]);
 
-const selectedTab = shallowRef<Tab>(tabs.value[0])
-
+const selectedTab = shallowRef<Tab>(tabs.value[0]);
 
 const onAddEmployee = (employeeInfo: EmployeeInfo) => {
   employeesStore.addEmployee(employeeInfo);
+  toggleIsAddPersonDialogOpen();
 };
 </script>
 
 <template>
   <div class="dashboard">
-    <div class="dashboard__head">
-      <h2 class="dashboard__title">{{ t('dashboard.title') }}</h2>
-      <LanguageSwitcher />
+    <div class="dashboard__settings">
       <ThemeSwitcher />
-      <CustomButton class="dashboard__button" @click="isAddPersonDialogOpen = true">
+      <LanguageSwitcher />
+    </div>
+    <h2 class="dashboard__title">{{ t('dashboard.title') }}</h2>
+    <div class="dashboard__head">
+      <CustomButton class="dashboard__button" @click="toggleIsAddPersonDialogOpen">
         <span>{{ t('dashboard.addEmployee') }}</span>
       </CustomButton>
     </div>
@@ -66,31 +72,32 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
         v-for="(tab, idx) in tabs"
         :key="idx"
         @click="setFilterType(tab)"
-        :class="['dashboard__tab', { 'dashboard__tab_active': selectedTab.filterName === tab.filterName }]"
+        :class="['dashboard__tab', { dashboard__tab_active: selectedTab.filterName === tab.filterName }]"
       >
         {{ tab.title }}
       </div>
     </div>
-    <div class="dashboard__divider"/>
+    <div class="dashboard__divider" />
     <div class="dashboard__table">
       <EmployeeTable :employees="filteredEmployees" />
     </div>
-    <add-person-dialog
-      :isOpen="isAddPersonDialogOpen"
-      @close="isAddPersonDialogOpen = false"
-      @submit="onAddEmployee"
-    />
+    <add-person-dialog :isOpen="isAddPersonDialogOpen" @close="toggleIsAddPersonDialogOpen" @submit="onAddEmployee" />
   </div>
 </template>
 
 <style lang="scss">
-
 .dashboard {
-  background: var(--color-base-background-primary);
+  background: transparent;
   padding: var(--basic-spacing-medium);
   border-radius: var(--border-radius-medium);
   box-shadow: var(--shadow-dark);
   transition: all var(--transition-ease) 0.3s;
+  border: 1px solid var(--color-base-border-secondary);
+
+  &__settings {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &__head {
     display: flex;
@@ -104,7 +111,10 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
     font-size: var(--font-size-large);
     font-weight: var(--font-weight-big);
     line-height: var(--line-height-big);
-    margin: 0;
+    margin-bottom: var(--basic-spacing-medium);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-huge);
   }
 
   &__tabs {
@@ -113,6 +123,8 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
     align-items: center;
     margin-bottom: var(--basic-spacing-small);
     font-size: var(--font-size-small);
+    overflow-x: scroll;
+    width: 100%;
   }
 
   &__tab {
@@ -124,7 +136,7 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
 
     &_active {
       color: var(--color-base-content-primary);
-      border-bottom: 4px solid var(--color-status-success);
+      border-bottom: 4px solid var(--color-base-accent);
     }
 
     &:hover {
@@ -139,7 +151,7 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
   }
 
   &__table {
-    background: var(--color-base-background-secondary);
+    background: transparent;
     border-radius: var(--border-radius-medium);
     padding: var(--basic-spacing);
     border: 1px solid var(--color-base-border-secondary);

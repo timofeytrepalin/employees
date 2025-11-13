@@ -4,11 +4,12 @@ import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import vueParser from 'vue-eslint-parser';
 import prettier from 'eslint-config-prettier';
+import prettierPlugin from 'eslint-plugin-prettier';
 
 export default [
   {
     files: ['**/*.{vue,ts,js,jsx,tsx}'],
-    ignores: ['node_modules/**', 'dist/**', '.prettierrc.js', 'eslint.config.js'],
+    ignores: ['node_modules/**', 'dist/**', '.prettierrc.js', 'eslint.config.js', 'api/**'],
     languageOptions: {
       parser: vueParser,
       parserOptions: {
@@ -21,6 +22,7 @@ export default [
     plugins: {
       vue: vuePlugin,
       '@typescript-eslint': typescriptEslint,
+      prettier: prettierPlugin,
     },
     rules: {
       ...vue3Essential.rules,
@@ -43,6 +45,7 @@ export default [
       '@typescript-eslint/no-unused-vars': ['warn'],
       '@typescript-eslint/no-empty-function': ['off'],
       '@typescript-eslint/no-var-requires': ['off'],
+      'prettier/prettier': 'error',
     },
   },
   {

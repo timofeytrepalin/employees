@@ -1,0 +1,702 @@
+[
+  {
+    "phone": "896-707-6589",
+    "designation": "Data Analyst",
+    "employeeCode": "82554-983",
+    "avatar": "https://robohash.org/eh8mry8wjvb?set=set4&bgset=&size=200x200",
+    "name": "Amanda Johnson",
+    "joiningDate": "2020-03-30T05:29:25.114Z",
+    "email": "amanda@нфтвуч.com",
+    "id": "3960a8eb-e9f1-425f-9c7d-ba3a681516e9"
+  },
+  {
+    "phone": "587-140-3905",
+    "designation": "DevOps Specialist",
+    "employeeCode": "29470-174",
+    "avatar": "https://robohash.org/g8umr9c9pbh?set=set4&bgset=&size=200x200",
+    "name": "Nancy Lewis",
+    "joiningDate": "2022-04-18T19:18:54.106Z",
+    "email": "nlewis74@yahoo.com",
+    "id": "54974f3b-45bb-45c9-b1a4-90c787984050"
+  },
+  {
+    "phone": "871-169-9445",
+    "designation": "DevOps Specialist",
+    "employeeCode": "46584-945",
+    "avatar": "https://robohash.org/jalgivl664?set=set4&bgset=&size=200x200",
+    "name": "Paul Jones",
+    "joiningDate": "2024-03-21T18:03:29.870Z",
+    "email": "jones@gmail.com",
+    "id": "9f05eaf1-c29b-4ba4-bd21-491792a824aa"
+  },
+  {
+    "phone": "447-548-1056",
+    "designation": "UX Designer",
+    "employeeCode": "95909-932",
+    "avatar": "https://robohash.org/gciuqvsnsol?set=set4&bgset=&size=200x200",
+    "name": "Michelle Green",
+    "joiningDate": "2022-08-21T18:38:44.533Z",
+    "email": "michelle_green@yahoo.com",
+    "id": "806c0cfc-bfff-49a2-a0a7-ea10207ea18a"
+  },
+  {
+    "phone": "884-320-2066",
+    "designation": "DevOps Specialist",
+    "employeeCode": "47631-981",
+    "avatar": "https://robohash.org/rcs6clf8jw?set=set4&bgset=&size=200x200",
+    "name": "Emily Taylor",
+    "joiningDate": "2024-05-22T04:10:13.493Z",
+    "email": "emily_taylor18@outlook.com",
+    "id": "39352571-f332-49b1-aa60-f1a38910278e"
+  },
+  {
+    "phone": "616-986-2325",
+    "designation": "UX Designer",
+    "employeeCode": "67284-796",
+    "avatar": "https://robohash.org/xblnsqj7p1g?set=set4&bgset=&size=200x200",
+    "name": "Kevin Phillips",
+    "joiningDate": "2025-05-02T15:37:44.255Z",
+    "email": "kevin.phillips1@outlook.com",
+    "id": "333bad0c-aac4-4a1c-a83f-c02e1173ee73"
+  },
+  {
+    "phone": "852-455-1364",
+    "designation": "QA Engineer",
+    "employeeCode": "26781-530",
+    "avatar": "https://robohash.org/vwr63z1mel9?set=set4&bgset=&size=200x200",
+    "name": "Timothy Green",
+    "joiningDate": "2020-02-21T21:31:57.086Z",
+    "email": "green@yahoo.com",
+    "id": "c420e1ee-0467-442c-8ef6-2ca03a428462"
+  },
+  {
+    "phone": "355-768-3422",
+    "designation": "Data Analyst",
+    "employeeCode": "23026-502",
+    "avatar": "https://robohash.org/uea4ur9hgpn?set=set4&bgset=&size=200x200",
+    "name": "Susan White",
+    "joiningDate": "2025-07-09T22:43:02.890Z",
+    "email": "swhite@gmail.com",
+    "id": "fb317106-ad26-41f0-be85-ec78611af837"
+  },
+  {
+    "phone": "117-391-8134",
+    "designation": "QA Engineer",
+    "employeeCode": "21513-501",
+    "avatar": "https://robohash.org/q988g609tbi?set=set4&bgset=&size=200x200",
+    "name": "Michelle Thompson",
+    "joiningDate": "2023-04-24T02:06:00.905Z",
+    "email": "michellethompson@outlook.com",
+    "id": "d1be9f8b-1d0e-438f-b4ce-1d90d8b178a9"
+  },
+  {
+    "phone": "912-954-2814",
+    "designation": "UX Designer",
+    "employeeCode": "89719-713",
+    "avatar": "https://robohash.org/1l1kfs4rugo?set=set4&bgset=&size=200x200",
+    "name": "Michael Thomas",
+    "joiningDate": "2022-03-09T02:40:55.161Z",
+    "email": "michael15@gmail.com",
+    "id": "c79c3940-5c16-4351-9130-964b497a2b5f"
+  },
+  {
+    "phone": "741-990-8175",
+    "designation": "UX Designer",
+    "employeeCode": "58317-905",
+    "avatar": "https://robohash.org/hvaxy8cl768?set=set4&bgset=&size=200x200",
+    "name": "Sarah Young",
+    "joiningDate": "2022-04-26T21:23:51.108Z",
+    "email": "sarahyoung@нфтвуч.com",
+    "id": "ba312130-2fa7-46a3-9e74-20ca17637c6f"
+  },
+  {
+    "phone": "502-749-6924",
+    "designation": "QA Engineer",
+    "employeeCode": "68572-386",
+    "avatar": "https://robohash.org/gye6jivkwhc?set=set4&bgset=&size=200x200",
+    "name": "Emily Miller",
+    "joiningDate": "2023-07-27T23:15:03.342Z",
+    "email": "miller@нфтвуч.com",
+    "id": "be7e1657-82ec-46fd-a767-082b7d868e7b"
+  },
+  {
+    "phone": "114-569-3822",
+    "designation": "DevOps Specialist",
+    "employeeCode": "44181-487",
+    "avatar": "https://robohash.org/lxxkdqhjxp?set=set4&bgset=&size=200x200",
+    "name": "Andrew Thompson",
+    "joiningDate": "2021-08-31T21:14:38.629Z",
+    "email": "athompson73@outlook.com",
+    "id": "901259c1-f6c4-409b-ae75-1919e4d11fa2"
+  },
+  {
+    "phone": "673-792-4396",
+    "designation": "Product Manager",
+    "employeeCode": "31828-280",
+    "avatar": "https://robohash.org/m9inpt5vk2?set=set4&bgset=&size=200x200",
+    "name": "Michael Rodriguez",
+    "joiningDate": "2025-04-27T06:34:16.233Z",
+    "email": "michaelrodriguez@outlook.com",
+    "id": "52d86978-0878-47a5-878b-ad340c64db38"
+  },
+  {
+    "phone": "237-538-3983",
+    "designation": "Product Manager",
+    "employeeCode": "42619-506",
+    "avatar": "https://robohash.org/zeponfrc2xj?set=set4&bgset=&size=200x200",
+    "name": "Daniel Brown",
+    "joiningDate": "2023-03-05T20:50:21.809Z",
+    "email": "danielbrown@outlook.com",
+    "id": "3af18668-bc50-4aa5-844c-f43100c2a08b"
+  },
+  {
+    "phone": "951-241-7308",
+    "designation": "Software Engineer",
+    "employeeCode": "23427-530",
+    "avatar": "https://robohash.org/p0c7fq79lst?set=set4&bgset=&size=200x200",
+    "name": "Rebecca Lewis",
+    "joiningDate": "2024-05-29T00:20:43.659Z",
+    "email": "rebeccalewis@yahoo.com",
+    "id": "37dfd889-8c87-4d02-a7a9-ffef8a40f81c"
+  },
+  {
+    "phone": "216-799-7211",
+    "designation": "Data Analyst",
+    "employeeCode": "13597-639",
+    "avatar": "https://robohash.org/u5pbnob7hos?set=set4&bgset=&size=200x200",
+    "name": "Brian Wilson",
+    "joiningDate": "2020-12-15T08:46:28.155Z",
+    "email": "brian_wilson@нфтвуч.com",
+    "id": "428233b3-8643-43a7-8c78-4db83fe3a39b"
+  },
+  {
+    "phone": "891-729-8247",
+    "designation": "Data Analyst",
+    "employeeCode": "37827-833",
+    "avatar": "https://robohash.org/j3dt6qe1w7?set=set4&bgset=&size=200x200",
+    "name": "Paul Nelson",
+    "joiningDate": "2021-04-07T17:26:14.407Z",
+    "email": "pnelson@gmail.com",
+    "id": "f35c8be0-f831-42c5-8909-1df302476297"
+  },
+  {
+    "phone": "682-223-2883",
+    "designation": "Product Manager",
+    "employeeCode": "66178-779",
+    "avatar": "https://robohash.org/04r9mlph92i4?set=set4&bgset=&size=200x200",
+    "name": "Sarah Nelson",
+    "joiningDate": "2024-04-10T20:35:04.896Z",
+    "email": "sarah_nelson15@gmail.com",
+    "id": "4745a177-b387-4376-b172-6c6bc4bb9757"
+  },
+  {
+    "phone": "272-994-4500",
+    "designation": "Product Manager",
+    "employeeCode": "11739-919",
+    "avatar": "https://robohash.org/nz217k94xqf?set=set4&bgset=&size=200x200",
+    "name": "Susan Anderson",
+    "joiningDate": "2025-02-07T14:32:50.112Z",
+    "email": "susan@нфтвуч.com",
+    "id": "fc440e2e-1dfb-40c8-a594-21d4337e903c"
+  },
+  {
+    "phone": "539-175-5082",
+    "designation": "DevOps Specialist",
+    "employeeCode": "54113-116",
+    "avatar": "https://robohash.org/bnkvjn7m3y?set=set4&bgset=&size=200x200",
+    "name": "Jane Smith",
+    "joiningDate": "2020-08-19T05:22:49.574Z",
+    "email": "jane@yahoo.com",
+    "id": "e79dcb3e-f9a2-4428-9ff6-5461bf8395ae"
+  },
+  {
+    "phone": "440-487-3694",
+    "designation": "Product Manager",
+    "employeeCode": "91944-543",
+    "avatar": "https://robohash.org/luwo96c5iil?set=set4&bgset=&size=200x200",
+    "name": "Michelle Williams",
+    "joiningDate": "2020-06-15T16:28:24.507Z",
+    "email": "williams67@outlook.com",
+    "id": "3ce5a197-7f5e-4604-bc2c-ccbd69bad2a9"
+  },
+  {
+    "phone": "594-907-7078",
+    "designation": "QA Engineer",
+    "employeeCode": "90319-389",
+    "avatar": "https://robohash.org/1jn6vu4753x?set=set4&bgset=&size=200x200",
+    "name": "Andrew Brown",
+    "joiningDate": "2023-11-13T18:40:51.701Z",
+    "email": "andrewb@gmail.com",
+    "id": "eedd464a-f1e4-4e6a-991d-b590ee8c1572"
+  },
+  {
+    "phone": "149-301-1724",
+    "designation": "Product Manager",
+    "employeeCode": "28855-404",
+    "avatar": "https://robohash.org/n6crk0iz99s?set=set4&bgset=&size=200x200",
+    "name": "Mary Martin",
+    "joiningDate": "2022-03-26T22:49:29.303Z",
+    "email": "marymartin@gmail.com",
+    "id": "d9b02aae-3d82-45d6-9e4b-bc3aede55ff8"
+  },
+  {
+    "phone": "102-562-1094",
+    "designation": "DevOps Specialist",
+    "employeeCode": "99067-920",
+    "avatar": "https://robohash.org/ytjai8x8uy?set=set4&bgset=&size=200x200",
+    "name": "Sarah Allen",
+    "joiningDate": "2021-06-03T05:30:13.469Z",
+    "email": "sarahallen@gmail.com",
+    "id": "e8853d32-aecd-45c5-a14e-6caaea002f6e"
+  },
+  {
+    "phone": "955-543-1929",
+    "designation": "Product Manager",
+    "employeeCode": "80724-600",
+    "avatar": "https://robohash.org/xwmld9meye?set=set4&bgset=&size=200x200",
+    "name": "Sarah Rodriguez",
+    "joiningDate": "2022-05-28T15:31:20.590Z",
+    "email": "sarah83@outlook.com",
+    "id": "e3da22b7-25d2-45ea-bcb9-d72b59a83b17"
+  },
+  {
+    "phone": "113-697-8997",
+    "designation": "Product Manager",
+    "employeeCode": "92546-335",
+    "avatar": "https://robohash.org/tbl82v0pzne?set=set4&bgset=&size=200x200",
+    "name": "David Phillips",
+    "joiningDate": "2024-10-24T03:08:52.222Z",
+    "email": "davidphillips@yahoo.com",
+    "id": "bc490de6-df53-4729-bd4c-c7192817916a"
+  },
+  {
+    "phone": "552-638-9294",
+    "designation": "Data Analyst",
+    "employeeCode": "99254-219",
+    "avatar": "https://robohash.org/mbvt3z0heh?set=set4&bgset=&size=200x200",
+    "name": "Susan Williams",
+    "joiningDate": "2021-12-04T18:18:42.895Z",
+    "email": "susan.williams@нфтвуч.com",
+    "id": "5420e4ed-414e-4cdb-b591-8242b17239f2"
+  },
+  {
+    "phone": "563-618-3522",
+    "designation": "UX Designer",
+    "employeeCode": "79491-549",
+    "avatar": "https://robohash.org/as8ohurdpvs?set=set4&bgset=&size=200x200",
+    "name": "John Walker",
+    "joiningDate": "2024-12-19T16:34:51.525Z",
+    "email": "walker74@yahoo.com",
+    "id": "37bb7787-8b10-4e2f-b2c6-d90caace1e45"
+  },
+  {
+    "phone": "233-824-8622",
+    "designation": "Product Manager",
+    "employeeCode": "23058-313",
+    "avatar": "https://robohash.org/oay49zq9agb?set=set4&bgset=&size=200x200",
+    "name": "Lisa Lewis",
+    "joiningDate": "2020-07-19T09:46:08.052Z",
+    "email": "lisalewis@outlook.com",
+    "id": "04588ba6-3fd9-4d4d-9e23-4d7ea56dcd71"
+  },
+  {
+    "phone": "138-850-2457",
+    "designation": "Software Engineer",
+    "employeeCode": "45834-571",
+    "avatar": "https://robohash.org/bqrmpixbwku?set=set4&bgset=&size=200x200",
+    "name": "Andrew Lewis",
+    "joiningDate": "2025-05-21T16:04:57.011Z",
+    "email": "andrewlewis@yahoo.com",
+    "id": "c2f8c509-baa6-4215-90f1-9cf445480484"
+  },
+  {
+    "phone": "234-427-7625",
+    "designation": "Product Manager",
+    "employeeCode": "61731-212",
+    "avatar": "https://robohash.org/qr5wp0gphjs?set=set4&bgset=&size=200x200",
+    "name": "Jennifer Walker",
+    "joiningDate": "2025-02-12T17:04:46.227Z",
+    "email": "jenniferwalker72@gmail.com",
+    "id": "234412ca-7d4b-4740-9b19-d5def7d5c564"
+  },
+  {
+    "phone": "594-457-3002",
+    "designation": "DevOps Specialist",
+    "employeeCode": "52530-232",
+    "avatar": "https://robohash.org/zn0qjwcc7g?set=set4&bgset=&size=200x200",
+    "name": "Amy Lee",
+    "joiningDate": "2021-06-21T15:16:31.728Z",
+    "email": "amy_lee@yahoo.com",
+    "id": "1d175364-40ac-4472-a4ea-5d26b1b16eb5"
+  },
+  {
+    "phone": "887-799-1457",
+    "designation": "DevOps Specialist",
+    "employeeCode": "86239-467",
+    "avatar": "https://robohash.org/ptaol28gclj?set=set4&bgset=&size=200x200",
+    "name": "Kevin Adams",
+    "joiningDate": "2024-09-20T02:22:27.898Z",
+    "email": "kadams@yahoo.com",
+    "id": "476e99fe-2a9a-4851-b601-8ee8320ed807"
+  },
+  {
+    "phone": "135-387-4141",
+    "designation": "Data Analyst",
+    "employeeCode": "73098-196",
+    "avatar": "https://robohash.org/bb18d89bx18?set=set4&bgset=&size=200x200",
+    "name": "Kevin Harris",
+    "joiningDate": "2022-11-03T09:45:21.175Z",
+    "email": "kevin79@gmail.com",
+    "id": "3e1324f0-29f9-4581-ace0-9cf49533019a"
+  },
+  {
+    "phone": "618-650-3207",
+    "designation": "Data Analyst",
+    "employeeCode": "41428-882",
+    "avatar": "https://robohash.org/z6gox9y018i?set=set4&bgset=&size=200x200",
+    "name": "George Rodriguez",
+    "joiningDate": "2020-09-07T16:55:17.259Z",
+    "email": "george32@gmail.com",
+    "id": "1c6124cb-5baa-4738-98cb-b1cfd61e3c0e"
+  },
+  {
+    "phone": "568-381-7973",
+    "designation": "QA Engineer",
+    "employeeCode": "39342-242",
+    "avatar": "https://robohash.org/dzy8gi80hhb?set=set4&bgset=&size=200x200",
+    "name": "Sarah Rodriguez",
+    "joiningDate": "2020-09-19T07:55:22.587Z",
+    "email": "sarah75@нфтвуч.com",
+    "id": "95456d09-d1b1-43e5-a502-053012d78feb"
+  },
+  {
+    "phone": "668-592-7715",
+    "designation": "Software Engineer",
+    "employeeCode": "48022-663",
+    "avatar": "https://robohash.org/f7oeojk3h3n?set=set4&bgset=&size=200x200",
+    "name": "Karen Martin",
+    "joiningDate": "2021-05-05T09:17:56.710Z",
+    "email": "martin27@gmail.com",
+    "id": "5bd0cb36-f9ed-4973-a937-58a29e8f6f41"
+  },
+  {
+    "phone": "901-292-7875",
+    "designation": "Software Engineer",
+    "employeeCode": "24553-137",
+    "avatar": "https://robohash.org/c5z6w8vj3j?set=set4&bgset=&size=200x200",
+    "name": "George Jackson",
+    "joiningDate": "2023-05-14T11:20:14.441Z",
+    "email": "georgej@нфтвуч.com",
+    "id": "520302f7-eb2a-445a-9b15-dc1b2e7a04af"
+  },
+  {
+    "phone": "733-929-2301",
+    "designation": "QA Engineer",
+    "employeeCode": "58880-742",
+    "avatar": "https://robohash.org/i35cr0lna6i?set=set4&bgset=&size=200x200",
+    "name": "Karen Wilson",
+    "joiningDate": "2024-09-04T13:30:20.582Z",
+    "email": "wilson@gmail.com",
+    "id": "2f6efce2-64d7-4348-8712-7fd68c900559"
+  },
+  {
+    "phone": "318-532-3346",
+    "designation": "UX Designer",
+    "employeeCode": "42465-914",
+    "avatar": "https://robohash.org/izb3ginr7cq?set=set4&bgset=&size=200x200",
+    "name": "Susan Rodriguez",
+    "joiningDate": "2020-07-22T02:34:31.516Z",
+    "email": "susan@нфтвуч.com",
+    "id": "553313d0-3f33-4c3a-be49-611d4a83b878"
+  },
+  {
+    "phone": "315-714-8365",
+    "designation": "QA Engineer",
+    "employeeCode": "93354-374",
+    "avatar": "https://robohash.org/mqumqmlbz5?set=set4&bgset=&size=200x200",
+    "name": "Matthew Phillips",
+    "joiningDate": "2020-06-15T19:53:15.708Z",
+    "email": "matthew_phillips@gmail.com",
+    "id": "2ad36d16-b66e-45cc-a14b-8d95ebada7c5"
+  },
+  {
+    "phone": "302-563-3285",
+    "designation": "Software Engineer",
+    "employeeCode": "43086-808",
+    "avatar": "https://robohash.org/p70r8w7ztt9?set=set4&bgset=&size=200x200",
+    "name": "Melissa Johnson",
+    "joiningDate": "2023-09-20T01:59:55.307Z",
+    "email": "melissaj60@yahoo.com",
+    "id": "1bedeb45-b104-4906-a554-824a3c2f2bdd"
+  },
+  {
+    "phone": "132-192-6343",
+    "designation": "QA Engineer",
+    "employeeCode": "63418-723",
+    "avatar": "https://robohash.org/bmqw6o3ceni?set=set4&bgset=&size=200x200",
+    "name": "Mary Davis",
+    "joiningDate": "2023-05-07T11:37:41.105Z",
+    "email": "davis59@нфтвуч.com",
+    "id": "ed80b9c8-f7ee-4cb7-b36a-50ac673f3eaa"
+  },
+  {
+    "phone": "522-506-9346",
+    "designation": "DevOps Specialist",
+    "employeeCode": "40538-346",
+    "avatar": "https://robohash.org/ymby6g7dyx?set=set4&bgset=&size=200x200",
+    "name": "Robert Jones",
+    "joiningDate": "2022-09-24T23:14:23.178Z",
+    "email": "jones@outlook.com",
+    "id": "e9c065aa-04f7-48c6-8171-1c7adbbb2adb"
+  },
+  {
+    "phone": "686-944-2748",
+    "designation": "QA Engineer",
+    "employeeCode": "33049-319",
+    "avatar": "https://robohash.org/trtg1hkpwjr?set=set4&bgset=&size=200x200",
+    "name": "Charles Smith",
+    "joiningDate": "2022-01-30T16:08:42.986Z",
+    "email": "csmith@outlook.com",
+    "id": "ec38d1ec-7a83-439b-bc21-e681ba44fd4c"
+  },
+  {
+    "phone": "160-552-3697",
+    "designation": "DevOps Specialist",
+    "employeeCode": "13214-797",
+    "avatar": "https://robohash.org/met7lnruu57?set=set4&bgset=&size=200x200",
+    "name": "Richard Baker",
+    "joiningDate": "2024-10-11T00:23:48.365Z",
+    "email": "rbaker@gmail.com",
+    "id": "ed85de2a-3522-4fa9-aa71-4dcc38312884"
+  },
+  {
+    "phone": "716-850-5967",
+    "designation": "Product Manager",
+    "employeeCode": "63436-385",
+    "avatar": "https://robohash.org/oslz1ociml?set=set4&bgset=&size=200x200",
+    "name": "Rebecca Davis",
+    "joiningDate": "2025-04-09T18:54:19.044Z",
+    "email": "rebecca34@gmail.com",
+    "id": "fd2dee6f-c1ad-4094-b6ed-f645adda9090"
+  },
+  {
+    "phone": "500-697-6153",
+    "designation": "Software Engineer",
+    "employeeCode": "72829-515",
+    "avatar": "https://robohash.org/loyqfklzpwa?set=set4&bgset=&size=200x200",
+    "name": "George Lee",
+    "joiningDate": "2020-09-15T11:21:24.019Z",
+    "email": "lee@yahoo.com",
+    "id": "bedc6d73-6316-49f4-8374-5df5ef212570"
+  },
+  {
+    "phone": "172-928-7832",
+    "designation": "Data Analyst",
+    "employeeCode": "76584-968",
+    "avatar": "https://robohash.org/9oqpz84dmdh?set=set4&bgset=&size=200x200",
+    "name": "Matthew King",
+    "joiningDate": "2020-01-12T16:09:03.347Z",
+    "email": "king@outlook.com",
+    "id": "3258aa43-e314-4550-bf1b-3419b4e9e337"
+  },
+  {
+    "phone": "506-816-8586",
+    "designation": "Data Analyst",
+    "employeeCode": "52148-524",
+    "avatar": "https://robohash.org/xra67n9ewph?set=set4&bgset=&size=200x200",
+    "name": "Mary Anderson",
+    "joiningDate": "2024-03-06T21:19:14.226Z",
+    "email": "marya@yahoo.com",
+    "id": "b3ff416a-e858-44af-9d90-0ea419733e04"
+  },
+  {
+    "phone": "361-669-6362",
+    "designation": "QA Engineer",
+    "employeeCode": "86823-854",
+    "avatar": "https://robohash.org/a4in2ur5t7?set=set4&bgset=&size=200x200",
+    "name": "James Adams",
+    "joiningDate": "2023-09-19T16:29:16.194Z",
+    "email": "jadams@yahoo.com",
+    "id": "42938ec1-3a7a-4103-b9f3-58ccb0efbee1"
+  },
+  {
+    "phone": "703-345-9715",
+    "designation": "QA Engineer",
+    "employeeCode": "23206-706",
+    "avatar": "https://robohash.org/2zjdppw1e9x?set=set4&bgset=&size=200x200",
+    "name": "Nancy Williams",
+    "joiningDate": "2022-09-25T05:35:14.928Z",
+    "email": "nancyw@gmail.com",
+    "id": "c338f295-1a79-4371-a07b-fa0632e4fc33"
+  },
+  {
+    "phone": "901-904-1684",
+    "designation": "DevOps Specialist",
+    "employeeCode": "63314-460",
+    "avatar": "https://robohash.org/38bpm7ucf8s?set=set4&bgset=&size=200x200",
+    "name": "Emily Anderson",
+    "joiningDate": "2024-10-23T20:07:13.725Z",
+    "email": "anderson33@yahoo.com",
+    "id": "488db5eb-876d-46ed-bf93-689587888090"
+  },
+  {
+    "phone": "943-925-5403",
+    "designation": "Product Manager",
+    "employeeCode": "63338-915",
+    "avatar": "https://robohash.org/21zo94rkc4e?set=set4&bgset=&size=200x200",
+    "name": "Melissa Allen",
+    "joiningDate": "2022-06-04T00:53:40.496Z",
+    "email": "melissaa@yahoo.com",
+    "id": "042b5558-efc2-4e3c-a82f-ef78573e8997"
+  },
+  {
+    "phone": "560-220-1577",
+    "designation": "UX Designer",
+    "employeeCode": "37929-125",
+    "avatar": "https://robohash.org/dbt9694rrbr?set=set4&bgset=&size=200x200",
+    "name": "Jennifer Jones",
+    "joiningDate": "2022-04-02T09:09:51.674Z",
+    "email": "jennifer_jones@gmail.com",
+    "id": "e76843ab-f8c9-49c0-ad69-37d4fe26ebb2"
+  },
+  {
+    "phone": "240-376-6712",
+    "designation": "DevOps Specialist",
+    "employeeCode": "87989-704",
+    "avatar": "https://robohash.org/6ekkpdt534p?set=set4&bgset=&size=200x200",
+    "name": "Jessica Perez",
+    "joiningDate": "2021-11-03T07:00:55.070Z",
+    "email": "jessicaperez@gmail.com",
+    "id": "22a1031d-b883-4f4c-a5bd-67672e830b49"
+  },
+  {
+    "phone": "974-688-9903",
+    "designation": "UX Designer",
+    "employeeCode": "35499-303",
+    "avatar": "https://robohash.org/08ymsd6rbxme?set=set4&bgset=&size=200x200",
+    "name": "James Phillips",
+    "joiningDate": "2020-11-04T10:02:31.831Z",
+    "email": "james_phillips@outlook.com",
+    "id": "d2bc3e3d-bbd4-4722-8824-5eeca8aa7e37"
+  },
+  {
+    "phone": "365-503-4084",
+    "designation": "Product Manager",
+    "employeeCode": "59830-914",
+    "avatar": "https://robohash.org/ryymu8piz3?set=set4&bgset=&size=200x200",
+    "name": "Susan Mitchell",
+    "joiningDate": "2025-04-19T20:45:54.087Z",
+    "email": "susan46@gmail.com",
+    "id": "744a57ae-b2f0-4903-8de8-df5bf4b40c46"
+  },
+  {
+    "phone": "340-969-7244",
+    "designation": "Software Engineer",
+    "employeeCode": "12678-699",
+    "avatar": "https://robohash.org/rc6maodduqf?set=set4&bgset=&size=200x200",
+    "name": "Andrew Anderson",
+    "joiningDate": "2020-01-03T01:51:49.121Z",
+    "email": "andrewanderson69@outlook.com",
+    "id": "3aae92dd-9622-4bd4-9d09-19a4d9664a57"
+  },
+  {
+    "phone": "561-454-2218",
+    "designation": "UX Designer",
+    "employeeCode": "82035-906",
+    "avatar": "https://robohash.org/l6ockp485i?set=set4&bgset=&size=200x200",
+    "name": "Richard King",
+    "joiningDate": "2022-01-14T13:14:41.817Z",
+    "email": "richardking95@yahoo.com",
+    "id": "b11d0a26-9db1-460f-a125-b36f460ac660"
+  },
+  {
+    "phone": "892-198-7626",
+    "designation": "Data Analyst",
+    "employeeCode": "53496-584",
+    "avatar": "https://robohash.org/5diyg69howe?set=set4&bgset=&size=200x200",
+    "name": "Jessica Harris",
+    "joiningDate": "2023-05-23T09:38:23.970Z",
+    "email": "harris@нфтвуч.com",
+    "id": "10b56490-fc47-4b4f-ae87-ed4516d74cea"
+  },
+  {
+    "phone": "991-501-5257",
+    "designation": "QA Engineer",
+    "employeeCode": "43931-701",
+    "avatar": "https://robohash.org/ksl3hxz8kus?set=set4&bgset=&size=200x200",
+    "name": "Brian Martin",
+    "joiningDate": "2024-10-09T04:17:43.717Z",
+    "email": "brian96@outlook.com",
+    "id": "31a241e5-9359-4f85-abf4-7dab02d6951d"
+  },
+  {
+    "phone": "994-952-6252",
+    "designation": "Product Manager",
+    "employeeCode": "53494-152",
+    "avatar": "https://robohash.org/1i1lhxjqjm9?set=set4&bgset=&size=200x200",
+    "name": "Thomas Carter",
+    "joiningDate": "2023-08-03T02:01:06.321Z",
+    "email": "thomascarter92@нфтвуч.com",
+    "id": "163970f9-79d1-4b54-acbf-1465124e4dab"
+  },
+  {
+    "phone": "664-285-4825",
+    "designation": "Product Manager",
+    "employeeCode": "12051-933",
+    "avatar": "https://robohash.org/77nb3rol14?set=set4&bgset=&size=200x200",
+    "name": "Jessica Rodriguez",
+    "joiningDate": "2024-07-17T17:48:29.969Z",
+    "email": "jessicarodriguez6@нфтвуч.com",
+    "id": "1c7b2823-a6a1-4321-b9a6-2b4d1ad7aeb7"
+  },
+  {
+    "phone": "824-977-2448",
+    "designation": "Software Engineer",
+    "employeeCode": "22799-338",
+    "avatar": "https://robohash.org/ar42hkpk676?set=set4&bgset=&size=200x200",
+    "name": "John Roberts",
+    "joiningDate": "2022-06-02T03:27:02.699Z",
+    "email": "roberts15@yahoo.com",
+    "id": "571eb3e0-4478-4ff6-8a99-e509c01fdda9"
+  },
+  {
+    "phone": "941-883-4953",
+    "designation": "Product Manager",
+    "employeeCode": "63060-262",
+    "avatar": "https://robohash.org/41rsentbrqu?set=set4&bgset=&size=200x200",
+    "name": "Elizabeth Lee",
+    "joiningDate": "2021-06-21T13:19:28.153Z",
+    "email": "elizabeth_lee99@gmail.com",
+    "id": "52754665-294d-405f-af0d-e4d6e3610614"
+  },
+  {
+    "phone": "656-886-8190",
+    "designation": "Product Manager",
+    "employeeCode": "16774-398",
+    "avatar": "https://robohash.org/je7xkicdqu7?set=set4&bgset=&size=200x200",
+    "name": "Mark Allen",
+    "joiningDate": "2021-01-21T18:42:55.469Z",
+    "email": "markallen@gmail.com",
+    "id": "6f99d770-ab02-4312-aca5-f3a85117899f"
+  },
+  {
+    "phone": "636-462-2632",
+    "designation": "Software Engineer",
+    "employeeCode": "99908-377",
+    "avatar": "https://robohash.org/gx93iowbm3q?set=set4&bgset=&size=200x200",
+    "name": "Linda Miller",
+    "joiningDate": "2023-10-07T05:32:21.870Z",
+    "email": "lindamiller@gmail.com",
+    "id": "79bb7ffc-831e-4590-97d6-17e65bd96c18"
+  },
+  {
+    "phone": "529-694-1653",
+    "designation": "UX Designer",
+    "employeeCode": "59235-779",
+    "avatar": "https://robohash.org/r75p6825gph?set=set4&bgset=&size=200x200",
+    "name": "Michelle Roberts",
+    "joiningDate": "2025-08-26T11:29:53.598Z",
+    "email": "michelle8@outlook.com",
+    "id": "cd9fce51-dfa6-44d2-84e4-425d03830cd4"
+  }
+]

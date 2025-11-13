@@ -3,6 +3,13 @@
   "cancel": "Cancel",
   "confirm": "Confirm",
   "delete": "Delete",
+  "theme": "Theme",
+  "switchTheme": "Switch Theme",
+  "yes": "Yes",
+  "no": "No",
+  "close": "Close",
+  "deleteEmployee": "Delete employee",
+  "noEmail": "no email",
   "dashboard": {
     "title": "Dashboard",
     "addEmployee": "Add Employee",
@@ -22,11 +29,16 @@
     "confirm": "Confirm",
     "delete": "Delete"
   },
+  "deleteDialog": {
+    "title": "Do you want to remove this employee?"
+  },
   "notification": {
     "success": "Success",
     "error": "Error",
-    "deleted": "Employee deleted successfully!",
-    "created": "Employee created successfully!"
+    "deleted": "Employee deleted successfully",
+    "created": "Employee created successfully",
+    "dataLoaded": "All employees loaded",
+    "operationFailed": "Something go wrong"
   },
   "employeeTable": {
     "basicInfo": "Basic Info",
@@ -35,5 +47,22 @@
     "phoneNumber": "Phone Number",
     "joiningDate": "Joining Date",
     "action": "Action"
-  }
+  },
+  "designations": {
+    "all": "All Employees",
+    "dataanalyst": "Data Analyst",
+    "softwareengineer": "Software Engineer",
+    "productmanager": "Product Manager",
+    "uxdesigner": "UX Designer",
+    "devopsspecialist": "DevOps Specialist",
+    "qaengineer": "QA Engineer"
+  },
+    "validationMessages": {
+      "phoneError": "Invalid phone format",
+      "dateError": "Invalid date",
+      "emailError": "Invalid email format",
+      "nameError": "Name is required",
+      "designationError": "Designation is required",
+      "fieldRequired": "This field is required"
+    }
 }

@@ -1,5 +1,6 @@
 import type { Employee } from '@/types/employees';
 import { computed, type ComputedRef } from 'vue';
+import { getI18n } from '@/i18n';
 
 type ValidationResult = {
   isValid: boolean;
@@ -20,28 +21,31 @@ type UseEmployeeValidationReturn = {
 };
 
 export function useEmployeeValidation(): UseEmployeeValidationReturn {
+  const i18n = getI18n();
+  const t = (i18n.global as any).t;
+
   const validateEmail = (email: string): ValidationResult => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValid = re.test(email);
-    return { 
-      isValid, 
-      error: isValid ? '' : 'Invalid email format' 
+    return {
+      isValid,
+      error: isValid ? '' : t('validationMessages.emailError'),
     };
   };
 
   const validateDate = (date: Date | string): ValidationResult => {
     const isValid = !isNaN(new Date(date).getTime());
-    return { 
-      isValid, 
-      error: isValid ? '' : 'Invalid date' 
+    return {
+      isValid,
+      error: isValid ? '' : t('validationMessages.dateError'),
     };
   };
 
   const validatePhone = (phone: string): ValidationResult => {
     const isValid = /^[\d\s\-()+x]{5,20}$/.test(phone);
-    return { 
-      isValid, 
-      error: isValid ? '' : 'Invalid phone format' 
+    return {
+      isValid,
+      error: isValid ? '' : t('validationMessages.phoneError'),
     };
   };
 
@@ -49,15 +53,11 @@ export function useEmployeeValidation(): UseEmployeeValidationReturn {
     const errors: Partial<Record<keyof Employee, string>> = {};
 
     if (!employee.name?.trim()) {
-      errors.name = 'Name is required';
-    }
-
-    if (!employee.employeeCode?.trim()) {
-      errors.employeeCode = 'Employee code is required';
+      errors.name = t('validationMessages.nameError');
     }
 
     if (!employee.designation?.trim()) {
-      errors.designation = 'Designation is required';
+      errors.designation = t('validationMessages.designationError');
     }
 
     const phoneValidation = validatePhone(employee.phone || '');
@@ -79,7 +79,7 @@ export function useEmployeeValidation(): UseEmployeeValidationReturn {
 
     return {
       isValid: Object.keys(errors).length === 0,
-      errors
+      errors,
     };
   };
 
