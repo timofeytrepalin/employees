@@ -52,7 +52,6 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --color-base-accent: rgb(130, 36, 253);
   --color-base-accent-secondary: rgb(240, 240, 240);
 
-  // Акценты в оттенках серого
   --color-status-success: rgb(25, 207, 19);
   --color-status-background-success: linear-gradient(
     98.19deg,
@@ -63,7 +62,6 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --color-status-error: rgba(255, 23, 23, 0.6);
   --color-status-error-dark: rgba(163, 1, 1, 0.4);
 
-  // Глубокие чёрные фоны с стеклянным эффектом
   --color-base-background-primary: rgba(10, 10, 10, 0.95);
   --color-base-background-secondary: rgba(15, 15, 15, 0.8);
   --color-base-background-tertiary: rgba(20, 20, 20, 0.6);
@@ -71,16 +69,13 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --color-base-background-utility: rgba(18, 18, 18, 0.9);
   --color-base-background-placeholder: rgba(30, 30, 30, 0.5);
 
-  // Границы в оттенках серого
   --color-base-border-primary: rgba(255, 255, 255, 0.315);
   --color-base-border-secondary: rgba(92, 92, 92, 0.616);
   --color-base-border-accent: rgba(255, 255, 255, 0.432);
 
-  // Стеклянные тени
   --shadow-dark: 0px 4px 20px rgba(0, 0, 0, 0.5);
   --shadow-dark-elevated: 0px 8px 32px rgba(0, 0, 0, 0.7);
 
-  // Стеклянные градиенты
   --background-base: linear-gradient(
     135deg, 
     rgba(8, 8, 8, 0.98) 0%, 
@@ -95,7 +90,6 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   );
   --background-filter: blur(20px) saturate(180%);
 
-// COSMO theme
    --cosmic-background-primary: #000000;
   --cosmic-background-secondary: rgba(10, 10, 20, 0.3);
   --cosmic-background-tertiary: rgba(8, 8, 16, 0.2);
@@ -119,7 +113,6 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
    --color-base-accent: rgb(130, 36, 253);
   --color-base-accent-secondary: rgb(240, 240, 240);
 
-  // Светлые акценты в оттенках серого
   --color-status-success: rgba(0, 0, 0, 0.8);
   --color-status-background-success: linear-gradient(
     98.19deg,
@@ -130,7 +123,6 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --color-status-error: rgba(255, 23, 23, 0.6);
   --color-status-error-dark: rgba(163, 1, 1, 0.4);
 
-  // Светлые стеклянные фоны
   --color-base-background-primary: rgba(250, 250, 250, 0.95);
   --color-base-background-secondary: rgba(245, 245, 245, 0.8);
   --color-base-background-tertiary: rgba(240, 240, 240, 0.6);
@@ -138,16 +130,13 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --color-base-background-utility: rgba(248, 248, 248, 0.9);
   --color-base-background-placeholder: rgba(230, 230, 230, 0.5);
 
-  // Светлые границы
   --color-base-border-primary: rgba(0, 0, 0, 0.15);
   --color-base-border-secondary: rgba(92, 92, 92, 0.452);
   --color-base-border-accent: rgba(0, 0, 0, 0.25);
 
-  // Светлые стеклянные тени
   --shadow-dark: 0px 4px 20px rgba(0, 0, 0, 0.1);
   --shadow-dark-elevated: 0px 8px 32px rgba(0, 0, 0, 0.15);
 
-  // Светлые стеклянные градиенты
   --background-base: linear-gradient(
     135deg,
     rgba(252, 252, 252, 0.98) 0%,
@@ -162,7 +151,6 @@ $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
   );
   --background-filter: blur(15px) saturate(160%);
 
-  // COSMO theme
   --cosmic-background-primary: #e6f0ff;
   --cosmic-background-secondary: rgba(100, 150, 255, 0.4);
   --cosmic-background-tertiary: rgba(80, 120, 255, 0.3);

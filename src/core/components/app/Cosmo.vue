@@ -63,3 +63,7 @@ const createCrispStars = () => {
   }
 };
 </script>
+
+<style lang="scss">
+@import '@/styles/cosmo.scss';
+</style>

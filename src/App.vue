@@ -1,3 +1,11 @@
+<template>
+  <Cosmo>
+    <div class="app-container app-glass">
+      <Dashboard />
+    </div>
+  </Cosmo>
+</template>
+
 <script setup lang="ts">
 import Cosmo from './core/components/app/Cosmo.vue';
 import { getLocale } from './i18n';
@@ -8,14 +16,6 @@ const { setLanguage } = useSettings();
 
 setLanguage(getLocale());
 </script>
-
-<template>
-  <Cosmo>
-    <div class="app-container app-glass">
-      <Dashboard />
-    </div>
-  </Cosmo>
-</template>
 
 <style scoped>
 .app-container {

@@ -30,26 +30,32 @@
   </Transition>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
-const props = defineProps({
-  isOpen: Boolean,
-  title: {
-    type: String,
-    default: '',
-  },
-  closeOnOverlayClick: {
-    type: Boolean,
-    default: true,
-  },
+interface Props {
+  isOpen: boolean;
+  title?: string;
+  closeOnOverlayClick?: boolean;
+  width?: string;
+}
+
+interface Emits {
+  (e: 'close'): void;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  isOpen: false,
+  title: '',
+  closeOnOverlayClick: true,
+  width: '500px',
 });
 
-const emit = defineEmits(['close']);
+const emit = defineEmits<Emits>();
 
-const handleClose = () => {
+const handleClose = (): void => {
   if (props.closeOnOverlayClick) {
     emit('close');
   }

@@ -1,5 +1,4 @@
 html {
-  // overflow-y: hidden;
   color: var(--color-base-content-primary);
   font-family: var(--font-family-default);
   font-size: var(--font-size-base);
@@ -40,8 +39,6 @@ button {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // height: 100dvh;
-  // background-color: var(--color-base-background-utility);
 }
 
 .flex-col {
