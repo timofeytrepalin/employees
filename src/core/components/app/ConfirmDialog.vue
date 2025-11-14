@@ -12,7 +12,7 @@
   </base-modal>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import BaseModal from '@/core/components/ui/Dialog/NativeModal.vue';
 import CustomButton from '@/core/components/ui/Button/CustomButton.vue';
 import { useI18n } from 'vue-i18n';

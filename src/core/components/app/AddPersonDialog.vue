@@ -53,7 +53,7 @@
   </base-modal>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed, reactive, toRaw } from 'vue';
 import BaseModal from '@/core/components/ui/Dialog/NativeModal.vue';
 import CustomInput from '@/core/components/ui/Input/CustomInput.vue';
