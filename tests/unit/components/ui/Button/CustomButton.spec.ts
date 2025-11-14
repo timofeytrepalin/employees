@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import CustomButton from './CustomButton.vue';
+import CustomButton from '../../../../../src/core/components/ui/Button/CustomButton.vue';
 
 describe('CustomButton Component', () => {
   it('renders slot content correctly', () => {

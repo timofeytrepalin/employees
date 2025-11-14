@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import Pagination from './Pagination.vue';
+import Pagination from '../../../../../src/core/components/ui/Pagination/Pagination.vue';
 
 describe('Pagination Component', () => {
   it('renders pagination buttons', () => {

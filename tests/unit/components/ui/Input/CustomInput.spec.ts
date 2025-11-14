@@ -1,38 +1,16 @@
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { createI18n } from 'vue-i18n';
-import CustomInput from './CustomInput.vue';
-
-const i18n = createI18n({
-  legacy: false,
-  locale: 'en',
-  messages: {
-    en: {
-      validationMessages: {
-        fieldRequired: 'This field is required',
-      },
-    },
-  },
-});
+import { mountWithI18n } from '../../../../shared/test-utils';
+import CustomInput from '../../../../../src/core/components/ui/Input/CustomInput.vue';
 
 describe('CustomInput Component', () => {
-  const mountWithI18n = (props = {}, options = {}) => {
-    return mount(CustomInput, {
-      props,
-      global: {
-        plugins: [i18n],
-      },
-      ...options,
-    });
-  };
-
   it('renders input element', () => {
-    const wrapper = mountWithI18n();
+    const wrapper = mountWithI18n(CustomInput);
     expect(wrapper.find('input').exists()).toBe(true);
   });
 
   it('updates modelValue on input', async () => {
-    const wrapper = mountWithI18n();
+    const wrapper = mountWithI18n(CustomInput);
     const input = wrapper.find('input');
     await input.setValue('test value');
     expect(wrapper.emitted('update:modelValue')).toBeTruthy();
@@ -40,12 +18,12 @@ describe('CustomInput Component', () => {
   });
 
   it('applies correct type attribute', () => {
-    const wrapper = mountWithI18n({ type: 'email' });
+    const wrapper = mountWithI18n(CustomInput, { props: { type: 'email' } });
     expect(wrapper.find('input').attributes('type')).toBe('email');
   });
 
   it('shows error message when validation fails', async () => {
-    const wrapper = mountWithI18n({ required: true });
+    const wrapper = mountWithI18n(CustomInput, { props: { required: true } });
     const input = wrapper.find('input');
     await input.trigger('blur');
     const errorDiv = wrapper.find('.input-error');
@@ -53,7 +31,7 @@ describe('CustomInput Component', () => {
   });
 
   it('applies error class when error exists', async () => {
-    const wrapper = mountWithI18n({ required: true });
+    const wrapper = mountWithI18n(CustomInput, { props: { required: true } });
     const input = wrapper.find('input');
     await input.setValue('');
     await input.trigger('blur');
@@ -62,17 +40,17 @@ describe('CustomInput Component', () => {
   });
 
   it('disables input when disabled prop is true', () => {
-    const wrapper = mountWithI18n({ disabled: true });
+    const wrapper = mountWithI18n(CustomInput, { props: { disabled: true } });
     expect(wrapper.find('input').attributes('disabled')).toBeDefined();
   });
 
   it('sets maxlength attribute', () => {
-    const wrapper = mountWithI18n({ maxlength: 50 });
+    const wrapper = mountWithI18n(CustomInput, { props: { maxlength: 50 } });
     expect(wrapper.find('input').attributes('maxlength')).toBe('50');
   });
 
   it('emits validation event on blur', async () => {
-    const wrapper = mountWithI18n();
+    const wrapper = mountWithI18n(CustomInput);
     await wrapper.find('input').trigger('blur');
     expect(wrapper.emitted('validation')).toBeTruthy();
   });
@@ -83,9 +61,11 @@ describe('CustomInput Component', () => {
       error: value.length > 3 ? '' : 'Too short',
     }));
 
-    const wrapper = mountWithI18n({
-      validationFunction,
-      validateOnBlur: true,
+    const wrapper = mountWithI18n(CustomInput, {
+      props: {
+        validationFunction,
+        validateOnBlur: true,
+      },
     });
 
     await wrapper.find('input').setValue('ab');

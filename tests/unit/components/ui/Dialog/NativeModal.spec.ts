@@ -1,44 +1,28 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { createI18n } from 'vue-i18n';
-import NativeModal from './NativeModal.vue';
-
-const i18n = createI18n({
-  legacy: false,
-  locale: 'en',
-  messages: {
-    en: {
-      close: 'Close',
-    },
-  },
-});
+import { mountWithI18n } from '../../../../shared/test-utils';
+import NativeModal from '../../../../../src/core/components/ui/Dialog/NativeModal.vue';
 
 describe('NativeModal Component', () => {
-  const mountWithI18n = (
+  const mountModal = (
     props: Record<string, any> & { isOpen: boolean } = { isOpen: false },
     options: Record<string, any> = {}
   ) => {
-    return mount(NativeModal, {
-      props,
-      global: {
-        plugins: [i18n],
-      },
-      ...options,
-    });
+    return mountWithI18n(NativeModal, { props, ...options });
   };
 
   it('renders modal when isOpen is true', () => {
-    const wrapper = mountWithI18n({ isOpen: true });
+    const wrapper = mountModal({ isOpen: true });
     expect(wrapper.find('.modal').exists()).toBe(true);
   });
 
   it('does not render modal when isOpen is false', () => {
-    const wrapper = mountWithI18n({ isOpen: false });
+    const wrapper = mountModal({ isOpen: false });
     expect(wrapper.find('.modal').exists()).toBe(false);
   });
 
   it('displays title prop', () => {
-    const wrapper = mountWithI18n({
+    const wrapper = mountModal({
       isOpen: true,
       title: 'Test Title',
     });
@@ -46,7 +30,7 @@ describe('NativeModal Component', () => {
   });
 
   it('renders slot content', () => {
-    const wrapper = mountWithI18n(
+    const wrapper = mountModal(
       { isOpen: true },
       {
         slots: {
@@ -58,7 +42,7 @@ describe('NativeModal Component', () => {
   });
 
   it('renders footer slot when provided', () => {
-    const wrapper = mountWithI18n(
+    const wrapper = mountModal(
       { isOpen: true },
       {
         slots: {
@@ -71,19 +55,19 @@ describe('NativeModal Component', () => {
   });
 
   it('emits close event when close button is clicked', async () => {
-    const wrapper = mountWithI18n({ isOpen: true });
+    const wrapper = mountModal({ isOpen: true });
     await wrapper.find('.modal__close').trigger('click');
     expect(wrapper.emitted('close')).toHaveLength(1);
   });
 
   it('emits close event when overlay is clicked', async () => {
-    const wrapper = mountWithI18n({ isOpen: true });
+    const wrapper = mountModal({ isOpen: true });
     await wrapper.find('.modal__overlay').trigger('click');
     expect(wrapper.emitted('close')).toHaveLength(1);
   });
 
   it('does not emit close when overlay is clicked and closeOnOverlayClick is false', async () => {
-    const wrapper = mountWithI18n({
+    const wrapper = mountModal({
       isOpen: true,
       closeOnOverlayClick: false,
     });
@@ -92,7 +76,7 @@ describe('NativeModal Component', () => {
   });
 
   it('applies custom width style', () => {
-    const wrapper = mountWithI18n({
+    const wrapper = mountModal({
       isOpen: true,
       width: '800px',
     });
