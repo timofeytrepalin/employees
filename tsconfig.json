@@ -18,6 +18,6 @@
     "noEmit": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*", "src/**/*.vue", "vite.config.ts"],
+  "include": ["src/**/*", "src/**/*.vue", "vite.config.ts", "vitest.config.ts"],
   "exclude": ["node_modules", "dist", ".prettierrc.js", "eslint.config.js"]
 }
