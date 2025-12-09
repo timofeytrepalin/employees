@@ -5,7 +5,10 @@ on:
     branches: [ '**' ]
   pull_request:
     branches: [ '**' ]
-
+      runs-on: ubuntu-latest
+      # Disable optional deps in this job to avoid native optional binaries
+      env:
+        NPM_CONFIG_OPTIONAL: 'false'
 jobs:
   build:
     name: Lint, Test and Build
@@ -19,10 +22,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-
-      - name: Clean npm cache
-        run: npm cache clean --force
+        - name: Install dependencies (no optional deps)
+          run: |
+            set -e
+            npm ci
 
       - name: Install dependencies (safe)
         run: |
