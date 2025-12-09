@@ -21,8 +21,13 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Clean npm cache
+        run: npm cache clean --force
+
+      - name: Install dependencies (safe)
+        run: |
+          set -e
+          npm ci || (npm cache clean --force && npm install --no-optional)
 
       - name: Lint
         run: npm run lint
