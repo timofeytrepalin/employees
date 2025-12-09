@@ -13,7 +13,8 @@
     "dashboard": {
       "title": "Панель управления",
       "addEmployee": "Добавить сотрудника",
-      "deleteConfirm": "Вы уверены, что хотите удалить этого сотрудника?"
+      "deleteConfirm": "Вы уверены, что хотите удалить этого сотрудника?",
+      "downloadCSV": "Скачать как CSV"
     },
     "addPersonForm": {
       "title": "Добавить нового сотрудника",
@@ -46,6 +47,9 @@
       "designation": "Должность",
       "phoneNumber": "Номер телефона",
       "joiningDate": "Дата приёма",
+      "name": "Имя",
+      "email": "Электронная почта",
+      "phone": "Телефон",
       "action": "Действие"
     },
     "designations": {

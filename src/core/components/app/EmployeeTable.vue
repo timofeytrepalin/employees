@@ -98,7 +98,7 @@ import CustomButton from '@/core/components/ui/Button/CustomButton.vue';
 import type { Employee, EmployeeFields } from '@/types/employees';
 import ConfirmDialog from './ConfirmDialog.vue';
 import { useI18n } from 'vue-i18n';
-import dayjs from 'dayjs';
+import { formatDate } from '@/i18n';
 
 const { t } = useI18n();
 
@@ -176,8 +176,6 @@ const stringSort = (property: EmployeeFields) => (a: TableEmployee, b: TableEmpl
   }
 };
 
-defineEmits(['delete']);
-
 const employeesStore = useEmployees();
 
 const isLoading = computed(() => employeesStore.isLoading);
@@ -223,10 +221,6 @@ const onDeleteEmployeeClick = (employee: Employee) => {
 const deleteEmployee = () => {
   employeesStore.removeEmployee(deleteEmployeeId.value);
   deleteEmployeeObject.value = null;
-};
-
-const formatDate = (dateString: string | Date) => {
-  return dayjs(dateString).format('DD MMM YYYY');
 };
 </script>
 

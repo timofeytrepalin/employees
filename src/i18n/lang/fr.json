@@ -13,7 +13,8 @@
     "dashboard": {
       "title": "Tableau de bord",
       "addEmployee": "Ajouter un employé",
-      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cet employé ?"
+      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cet employé ?",
+      "downloadCSV": "Télécharger en CSV"
     },
     "addPersonForm": {
       "title": "Ajouter un nouvel employé",
@@ -46,6 +47,9 @@
       "designation": "Poste",
       "phoneNumber": "Numéro de téléphone",
       "joiningDate": "Date d'embauche",
+      "name": "Nom",
+      "email": "E-mail",
+      "phone": "Téléphone",
       "action": "Action"
     },
     "designations": {
