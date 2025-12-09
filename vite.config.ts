@@ -3,7 +3,6 @@ import vue from '@vitejs/plugin-vue';
 import Components from 'unplugin-vue-components/vite';
 import vueDevTools from 'vite-plugin-vue-devtools';
 import svgLoader from 'vite-svg-loader';
-import dynamicImport from 'vite-plugin-dynamic-import';
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 import path from 'node:path';
 
@@ -17,7 +16,6 @@ export default defineConfig(({ command }) => ({
     vue(),
     ...(command === 'serve' ? [vueDevTools()] : []),
     svgLoader(),
-    dynamicImport(),
     VueI18nPlugin({
       include: [path.resolve(__dirname, './src/i18n/lang/**')],
     }),
