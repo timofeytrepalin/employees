@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import AddPersonDialog from '@/core/components/app/AddPersonDialog.vue';
 import EmployeeTable from '@/core/components/app/EmployeeTable.vue';
 import CustomButton from '@/core/components/ui/Button/CustomButton.vue';
-import { ref, onMounted, shallowRef, computed } from 'vue';
+import { ref, onMounted, shallowRef, computed, defineAsyncComponent } from 'vue';
 import { useEmployees } from '@/stores/employees';
 import type { EmployeeInfo } from '@/types/employees';
 import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
+import { formatDate } from '@/i18n';
 import LanguageSwitcher from '@/core/components/app/LanguageSwitcher.vue';
 import ThemeSwitcher from '@/core/components/app/ThemeSwitcher.vue';
 import OnlineUsers from '@/core/components/app/OnlineUsers.vue';
+const AddPersonDialog = defineAsyncComponent(() => import('@/core/components/app/AddPersonDialog.vue'));
 
 interface Tab {
   filterName: string;
@@ -54,6 +55,45 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
   employeesStore.addEmployee(employeeInfo);
   toggleIsAddPersonDialogOpen();
 };
+
+function escapeCsvField(value: any) {
+  if (value === null || value === undefined) return '';
+  const str = String(value);
+  if (/[",\n\r]/.test(str)) {
+    return `"${str.replace(/"/g, '""')}"`;
+  }
+  return str;
+}
+
+function downloadCSVData() {
+  const reportDate = new Date();
+  const headers = [
+    t('employeeTable.name'),
+    t('employeeTable.email'),
+    t('employeeTable.designation'),
+    t('employeeTable.phone'),
+    t('employeeTable.joiningDate'),
+  ];
+  const rows = employeesStore.employees.map((p) => [
+    p.name,
+    p.email,
+    t(`designations.${p.designation}`),
+    p.phone,
+    formatDate(p.joiningDate),
+  ]);
+
+  const bom = '\uFEFF';
+  const csvLines = [headers.map(escapeCsvField).join(','), ...rows.map((r) => r.map(escapeCsvField).join(','))];
+  const blob = new Blob([bom + csvLines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `employees_${reportDate.toISOString().slice(0, 19).replace(/[:T]/g, '-')}.csv`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
 </script>
 
 <template>
@@ -67,6 +107,9 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
     <div class="dashboard__head">
       <CustomButton class="dashboard__button" @click="toggleIsAddPersonDialogOpen">
         <span>{{ t('dashboard.addEmployee') }}</span>
+      </CustomButton>
+      <CustomButton class="dashboard__button" @click="downloadCSVData">
+        <span>{{ t('dashboard.downloadCSV') }}</span>
       </CustomButton>
     </div>
     <div class="dashboard__tabs">

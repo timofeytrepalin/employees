@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest';
-import { mount } from '@vue/test-utils';
 import { mountWithI18n } from '../../../../shared/test-utils';
 import NativeModal from '../../../../../src/core/components/ui/Dialog/NativeModal.vue';
 

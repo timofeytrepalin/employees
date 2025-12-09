@@ -69,4 +69,8 @@ export function getI18n(): I18n {
   return i18n;
 }
 
+export function formatDate(dateString: string | Date): string {
+  return dayjs(dateString).format('DD MMM YYYY');
+}
+
 export default i18n;

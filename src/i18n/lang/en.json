@@ -13,7 +13,8 @@
   "dashboard": {
     "title": "Dashboard",
     "addEmployee": "Add Employee",
-    "deleteConfirm": "Are you sure you want to delete this employee?"
+    "deleteConfirm": "Are you sure you want to delete this employee?",
+    "downloadCSV": "Download as CSV"
   },
   "addPersonForm": {
     "title": "Add new employee",
@@ -46,6 +47,9 @@
     "designation": "Designation",
     "phoneNumber": "Phone Number",
     "joiningDate": "Joining Date",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
     "action": "Action"
   },
   "designations": {

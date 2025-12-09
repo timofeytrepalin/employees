@@ -1,5 +1,4 @@
 import { describe, it, expect, vi } from 'vitest';
-import { mount } from '@vue/test-utils';
 import { mountWithI18n } from '../../../../shared/test-utils';
 import CustomInput from '../../../../../src/core/components/ui/Input/CustomInput.vue';
 
