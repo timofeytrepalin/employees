@@ -9,6 +9,7 @@ import { storeToRefs } from 'pinia';
 import { useI18n } from 'vue-i18n';
 import LanguageSwitcher from '@/core/components/app/LanguageSwitcher.vue';
 import ThemeSwitcher from '@/core/components/app/ThemeSwitcher.vue';
+import OnlineUsers from '@/core/components/app/OnlineUsers.vue';
 
 interface Tab {
   filterName: string;
@@ -59,6 +60,7 @@ const onAddEmployee = (employeeInfo: EmployeeInfo) => {
   <div class="dashboard">
     <div class="dashboard__settings">
       <ThemeSwitcher />
+      <OnlineUsers />
       <LanguageSwitcher />
     </div>
     <h2 class="dashboard__title">{{ t('dashboard.title') }}</h2>

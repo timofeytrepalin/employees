@@ -1,5 +1,109 @@
 # 👥 Employees Management System
 
+A modern, type-safe employee management demo built with Vue 3, TypeScript and Vite. This repository is a hiring-portfolio demo that showcases production-minded engineering: CI, unit tests, realtime UX (mocked with RxJS), and a clean component architecture.
+
+## Key Features
+
+- Multilingual support (EN/FR/RU) via `vue-i18n`
+- Dark / Light theme with persistence
+- Responsive, accessible UI components
+- Pinia state management with typed stores
+- Real-time mock streams using **RxJS** (online users widget)
+- Unit tests with **Vitest** and `@vue/test-utils`
+- CI with GitHub Actions (`.github/workflows/ci.yml`) that runs lint, type-check, tests and build
+- Dev tooling: ESLint, Prettier, TypeScript strict mode
+
+## Live Demo
+
+If a deployment is available it will be linked from the repository. This demo can be run locally (see below).
+
+## Quick Start
+
+Requirements: Node.js 18+ and npm
+
+```bash
+# Clone
+git clone https://github.com/timofeytrepalin/employees.git
+cd employees
+
+# Install
+npm install
+
+# Development server
+npm run dev
+```
+
+Open `http://localhost:5173`.
+
+## Scripts
+
+```bash
+npm run dev         # development server
+npm run build       # production build
+npm run preview     # preview build
+npm run lint        # eslint with autofix
+npm run type-check  # vue-tsc
+npm run test        # vitest unit tests
+```
+
+## Realtime (Mock)
+
+- The project includes a lightweight RxJS mock stream in `src/services/realtimeMock.ts` that simulates online user counts and other realtime events.
+- Abstraction is exposed from `src/services/realtime.ts` so the mock can be swapped for a real transport (socket.io-client) later without touching components.
+- `src/composables/useOnlineUsers.ts` consumes the stream and `src/core/components/app/OnlineUsers.vue` displays the live count.
+
+## Testing & CI
+
+- Unit tests are located under `tests/unit` and run with Vitest (`happy-dom` environment).
+- CI workflow at `.github/workflows/ci.yml` runs lint, type-check, unit tests and build on push and PRs.
+
+Run tests locally:
+
+```bash
+npm run test -- --run
+```
+
+## Security & Dependencies
+
+- `npm audit` has been run and critical vulnerabilities addressed (notably, `vite` upgraded to a patched release).
+- To re-check locally:
+
+```bash
+npm audit
+```
+
+## Notable Components & Files
+
+- `src/core/components/app/OnlineUsers.vue` — realtime online user widget (mocked)
+- `src/services/realtimeMock.ts` — RxJS BehaviorSubject stream for realtime demo
+- `src/composables/useOnlineUsers.ts` — composable that exposes reactive online count
+- `src/services/realtime.ts` — realtime abstraction (swap implementation to socket.io)
+- `src/services/mockServer.ts` — mock API used in development
+- `tests/shared/test-utils.ts` — helpers for mounting components with i18n
+
+## Roadmap & Senior-level Enhancements
+
+These features are planned or recommended to elevate the demo to middle+/senior level:
+
+- Bulk CSV/Excel import with preview and validation (zod)
+- Audit log / change history with undo
+- Role-Based Access Control (RBAC) and Admin UI
+- E2E test suite with Playwright and visual regression
+- Storybook for component documentation
+- Observability (Sentry) + performance monitoring
+
+If you want, I can scaffold any of the above (CI already in place — next recommended: Bulk Import MVP).
+
+## Contributing & Notes
+
+- Keep PRs focused and small. Include tests for new logic.
+- Use `npm run lint` and `npm run type-check` before opening PRs.
+
+---
+
+**Last updated:** December 2025
+# 👥 Employees Management System
+
 A modern, type-safe employee management application built with **Vue 3**, **TypeScript**, and **Vite**. Features a responsive UI, internationalization support (EN/FR/RU), and real-time data management with mock API integration.
 
 🔗 **[Live Demo](https://employees-8nq5gkm82-timofeytrepalins-projects.vercel.app/)** - Deployed on Vercel
